@@ -41,7 +41,7 @@ Allow: /
 # Disallow: /private/
 
 # Sitemap location
-Sitemap: https://telegram-directions.com/sitemap.xml
+Sitemap: https://xn----zhcfoankcogt8ah0h.xyz/sitemap.xml
 
 # Crawl delay (optional)
 Crawl-delay: 1
