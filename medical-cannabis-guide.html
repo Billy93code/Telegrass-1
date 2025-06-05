@@ -13,6 +13,28 @@
         gtag('config', 'G-6ZF8WLZKQY');
     </script>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+    <script>
+        DisableDevtool({
+            ondevtoolopen: (type, next) => {
+                // Log to your server
+                fetch('/log-devtool-activation', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        activated: true,
+                        type: type,
+                        timestamp: new Date().toISOString()
+                    })
+                }).catch(err => console.error('Log failed:', err));
+
+                // Redirect to a blank page
+                window.location.replace('about:blank');
+            }
+        });
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,7 +43,8 @@
     <meta name="description"
         content="מדריך מקיף לקבלת רישיון קנאביס רפואי בישראל 2025. טלגראס כיוונים להתארגן בישראל, וויד ישראל רפואי - כל מה שצריך לדעת על התהליך והחוק.">
     <meta name="keywords"
-        content="קנאביס רפואי ישראל, רישיון קנאביס רפואי, טלגראס כיוונים רפואי, להתארגן בישראל רפואי, וויד ישראל רפואי, חוק קנאביס ישראל">    <!-- Open Graph / Facebook -->
+        content="קנאביס רפואי ישראל, רישיון קנאביס רפואי, טלגראס כיוונים רפואי, להתארגן בישראל רפואי, וויד ישראל רפואי, חוק קנאביס ישראל">
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://xn----zhcfoankcogt8ah0h.xyz/medical-cannabis-guide.html">
     <meta property="og:title" content="מדריך קנאביס רפואי בישראל 2025 | טלגראס כיוונים">
@@ -77,7 +100,7 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark-green fixed-top">
-        <div class="container">            <a class="navbar-brand fw-bold" href="index.html">
+        <div class="container"> <a class="navbar-brand fw-bold" href="index.html">
                 <i class="bi bi-flower1 me-2"></i>
                 טלגראס כיוונים
             </a>
@@ -94,7 +117,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">                    <li class="nav-item">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
                         <a class="nav-link" href="index.html">בית</a>
                     </li>
                     <li class="nav-item">

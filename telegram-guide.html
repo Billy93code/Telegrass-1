@@ -13,6 +13,27 @@
         gtag('config', 'G-6ZF8WLZKQY');
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+    <script>
+        DisableDevtool({
+            ondevtoolopen: (type, next) => {
+                // Log to your server
+                fetch('/log-devtool-activation', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        activated: true,
+                        type: type,
+                        timestamp: new Date().toISOString()
+                    })
+                }).catch(err => console.error('Log failed:', err));
+
+                // Redirect to a blank page
+                window.location.replace('about:blank');
+            }
+        });
+    </script>
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +43,8 @@
     <meta name="description"
         content="מדריך מפורט לטלגרם כיוונים קנאביס בישראל 2025. טלגראס כיוונים להתארגן בישראל בבטחה, וויד ישראל בטלגרם - כל מה שצריך לדעת על בטיחות ופרטיות.">
     <meta name="keywords"
-        content="טלגרם כיוונים, טלגראס כיוונים טלגרם, קנאביס ישראל טלגרם, להתארגן בישראל טלגרם, וויד ישראל טלגרם, בטיחות טלגרם">    <!-- Open Graph / Facebook -->
+        content="טלגרם כיוונים, טלגראס כיוונים טלגרם, קנאביס ישראל טלגרם, להתארגן בישראל טלגרם, וויד ישראל טלגרם, בטיחות טלגרם">
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://xn----zhcfoankcogt8ah0h.xyz/telegram-guide.html">
     <meta property="og:title" content="מדריך טלגרם כיוונים לקנאביס 2025 | טלגראס כיוונים">
@@ -103,7 +125,8 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">                <ul class="navbar-nav ms-auto">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">בית</a>
                     </li>

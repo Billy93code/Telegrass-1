@@ -3,6 +3,8 @@
 
 <head>
 
+
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZF8WLZKQY"></script>
     <script>
@@ -13,6 +15,27 @@
         gtag('config', 'G-6ZF8WLZKQY');
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+    <script>
+        DisableDevtool({
+            ondevtoolopen: (type, next) => {
+                // Log to your server
+                fetch('/log-devtool-activation', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        activated: true,
+                        type: type,
+                        timestamp: new Date().toISOString()
+                    })
+                }).catch(err => console.error('Log failed:', err));
+
+                // Redirect to a blank page
+                window.location.replace('about:blank');
+            }
+        });
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,7 +44,8 @@
     <meta name="description"
         content="טלגראס כיוונים ישראל הכי מעודכן 2025 - טלגרם כיוונים קנאביס בישראל, וויד ישראל, מדריכים להתארגן בישראל בבטחה. מידע מקצועי ואמין.">
     <meta name="keywords"
-        content="טלגראס כיוונים, טלגרם כיוונים, קנאביס ישראל, וויד ישראל, להתארגן בישראל, טלגראס ישראל, קנאביס רפואי, זנים בישראל">    <!-- Open Graph / Facebook -->
+        content="טלגראס כיוונים, טלגרם כיוונים, קנאביס ישראל, וויד ישראל, להתארגן בישראל, טלגראס ישראל, קנאביס רפואי, זנים בישראל">
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://xn----zhcfoankcogt8ah0h.xyz">
     <meta property="og:title" content="טלגראס כיוונים | טלגרם כיוונים קנאביס ישראל">
@@ -103,7 +127,8 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">                <ul class="navbar-nav ms-auto">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#home">בית</a>
                     </li>
@@ -133,7 +158,8 @@
                     </h1>
                     <p class="lead mb-5 animate-fade-in-delay">
                         המקום הטוב ביותר למידע עדכני על טלגראס, כיוונים וקנאביס בישראל
-                    </p>                    <div class="animate-fade-in-delay-2">
+                    </p>
+                    <div class="animate-fade-in-delay-2">
                         <a href="#directions" class="btn btn-primary btn-lg me-3">
                             <i class="bi bi-geo-alt me-2"></i>
                             לכיוונים לחץ כאן!
@@ -230,8 +256,9 @@
                             </div>
                             <p class="card-text">שירות מהיר ומקצועי במרכז תל אביב. איכות גבוהה, מחירים הוגנים.</p>
                             <div class="d-grid">
-                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg" target="_blank"
-                                    rel="noopener noreferrer" role="button" aria-label="פתח כיוון טלגרם">
+                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg"
+                                    target="_blank" rel="noopener noreferrer" role="button"
+                                    aria-label="פתח כיוון טלגרם">
                                     <i class="bi bi-telegram me-2"></i>
                                     כיוון טלגרם
                                 </a>
@@ -257,7 +284,8 @@
                             </div>
                             <p class="card-text">כיוון אמין ומקצועי באזור רמת גן. מגוון זנים איכותיים.</p>
                             <div class="d-grid">
-                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg" target="_blank">
+                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg"
+                                    target="_blank">
                                     <i class="bi bi-telegram me-2"></i>
                                     כיוון טלגרם
                                 </a>
@@ -283,7 +311,8 @@
                             </div>
                             <p class="card-text">שירות אישי ומקצועי בגבעתיים. דיסקרטיות מלאה.</p>
                             <div class="d-grid">
-                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg" target="_blank">
+                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg"
+                                    target="_blank">
                                     <i class="bi bi-telegram me-2"></i>
                                     כיוון טלגרם
                                 </a>
@@ -309,7 +338,8 @@
                             </div>
                             <p class="card-text">כיוון מהימן בפתח תקווה עם שירות משלוחים מהיר.</p>
                             <div class="d-grid">
-                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg" target="_blank">
+                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg"
+                                    target="_blank">
                                     <i class="bi bi-telegram me-2"></i>
                                     כיוון טלגרם
                                 </a>
@@ -335,7 +365,8 @@
                             </div>
                             <p class="card-text">שירות דיסקרטי ומקצועי באזור בני ברק. מחירים מיוחדים.</p>
                             <div class="d-grid">
-                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg" target="_blank">
+                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg"
+                                    target="_blank">
                                     <i class="bi bi-telegram me-2"></i>
                                     כיוון טלגרם
                                 </a>
@@ -361,7 +392,8 @@
                             </div>
                             <p class="card-text">כיוון מומלץ בחולון עם מגוון גדול של זנים איכותיים.</p>
                             <div class="d-grid">
-                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg" target="_blank">
+                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg"
+                                    target="_blank">
                                     <i class="bi bi-telegram me-2"></i>
                                     כיוון טלגרם
                                 </a>
@@ -387,7 +419,8 @@
                             </div>
                             <p class="card-text">שירות מהיר ואמין בבת ים. זמינות גבוהה ומחירים טובים.</p>
                             <div class="d-grid">
-                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg" target="_blank">
+                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg"
+                                    target="_blank">
                                     <i class="bi bi-telegram me-2"></i>
                                     כיוון טלגרם
                                 </a>
@@ -413,7 +446,8 @@
                             </div>
                             <p class="card-text">כיוון מוביל בראשון לציון. שירות מעולה וזמינות גבוהה.</p>
                             <div class="d-grid">
-                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg" target="_blank">
+                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg"
+                                    target="_blank">
                                     <i class="bi bi-telegram me-2"></i>
                                     כיוון טלגרם
                                 </a>
@@ -439,7 +473,8 @@
                             </div>
                             <p class="card-text">כיוון מקצועי ברחובות עם שירות אישי ומחירים הוגנים.</p>
                             <div class="d-grid">
-                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg" target="_blank">
+                                <a href="https://bit.ly/Telegrass-kivunim" class="btn btn-telegram btn-lg"
+                                    target="_blank">
                                     <i class="bi bi-telegram me-2"></i>
                                     כיוון טלגרם
                                 </a>
