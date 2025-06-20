@@ -1,7 +1,0 @@
-plugins:
-  - jekyll-sitemap
-
-include:
-  - sitemap.xml
-  - news-sitemap.xml
-  - robots.txt
