@@ -42,6 +42,7 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://xn----zhcfoankcogt8ah0h.xyz/sitemap.xml
+Sitemap: https://xn----zhcfoankcogt8ah0h.xyz/news-sitemap.xml
 
 # Crawl delay (optional)
 Crawl-delay: 1
