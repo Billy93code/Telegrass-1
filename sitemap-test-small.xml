@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Articles -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/articles.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Tel Aviv -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/תל-אביב-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Jerusalem -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/ירושלים-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Haifa -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/חיפה-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+</urlset>
