@@ -55,13 +55,15 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-right: 160px; /* Space for directions button */
 }
 
 /* Always Visible Directions Button */
 .directions-btn-container {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 1000;
 }
 
@@ -951,6 +953,7 @@ footer a:hover {
     
     .navbar .container {
         justify-content: flex-start;
+        padding-right: 15px; /* Reset padding on mobile */
     }
     
     .navbar-brand {
