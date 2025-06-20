@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Articles -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/articles.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Tel Aviv -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/תל-אביב-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Jerusalem -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/ירושלים-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+    <!-- Haifa -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/חיפה-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Beer Sheva -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/באר-שבע-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Netanya -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/נתניה-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Petah Tikva -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/פתח-תקוה-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Rishon LeZion -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/ראשון-לציון-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Ashdod -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/אשדוד-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Holon -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/חולון-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Bnei Brak -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/בני-ברק-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Ramat Gan -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/רמת-גן-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Bat Yam -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/בת-ים-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Kfar Saba -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/כפר-סבא-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Herzliya -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/הרצליה-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Ra'anana -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/רעננה-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Eilat -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/אילת-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Tiberias -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/טבריה-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Nazareth -->
+  <url>
+    <loc>https://טלגראס-כיוונים.xyz/cities/נצרת-כיוונים.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+</urlset>
