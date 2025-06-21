@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="he" dir="rtl">
 
-<head>
+<head><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZF8WLZKQY"></script>
     <script>
@@ -13,39 +15,15 @@
         gtag('config', 'G-6ZF8WLZKQY');
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
-    <script>
-        DisableDevtool({
-            ondevtoolopen: (type, next) => {
-                // Log to your server
-                fetch('/log-devtool-activation', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        activated: true,
-                        type: type,
-                        timestamp: new Date().toISOString()
-                    })
-                }).catch(err => console.error('Log failed:', err));
-
-                // Redirect to a blank page
-                window.location.replace('about:blank');
-            }
-        });
-    </script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- Primary SEO Tags -->
     <title>מדריך בטיחות ואבטחה לקנאביס ישראל 2025 | טלגראס כיוונים</title>
     <meta name="description"
-        content="מדריך מקיף לבטיחות ואבטחה בשימוש בקנאביס וטלגראס בישראל. כיוונים בטוחים והגנה על הפרטיות.">
+        content="מדריך מקיף לבטיחות ואבטחה בשימוש בקנאביס וטלגראס כיוונים בישראל. כיוונים בטוחים והגנה על הפרטיות.">
     <meta name="keywords"
         content="בטיחות קנאביס ישראל, אבטחה טלגראס כיוונים, להתארגן בישראל בבטחה, וויד ישראל בטיחות, פרטיות קנאביס, בטיחות טלגרם">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://xn----zhcfoankcogt8ah0h.xyz/safety-security-guide.html">
+    <meta property="og:url" content="https://xn----zhcfoankcogt8ah0h.xyz/מדריך-בטיחות-ואבטחה.html">
     <meta property="og:title" content="מדריך בטיחות ואבטחה 2025 | טלגראס כיוונים">
     <meta property="og:description"
         content="מדריך מקצועי לבטיחות ואבטחה בעולם הקנאביס - טיפים חשובים להגנה על הפרטיות והבטיחות האישית.">
@@ -53,7 +31,7 @@
     <meta property="og:locale" content="he_IL">
 
     <!-- Technical SEO -->
-    <link rel="canonical" href="https://xn----zhcfoankcogt8ah0h.xyz/safety-security-guide.html">
+    <link rel="canonical" href="https://xn----zhcfoankcogt8ah0h.xyz/מדריך-בטיחות-ואבטחה.html">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
 
@@ -76,7 +54,7 @@
         "dateModified": "2025-06-03",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://xn----zhcfoankcogt8ah0h.xyz/safety-security-guide.html"
+            "@id": "https://xn----zhcfoankcogt8ah0h.xyz/מדריך-בטיחות-ואבטחה.html"
         },
         "inLanguage": "he",
         "about": {
@@ -420,12 +398,12 @@
                                     </a>
                                 </div>
                                 <div class="col-auto">
-                                    <a href="telegram-guide.html" class="btn btn-outline-primary">
+                                    <a href="מדריך-טלגרם.html" class="btn btn-outline-primary">
                                         <i class="bi bi-telegram me-2"></i>מדריך טלגרם
                                     </a>
                                 </div>
                                 <div class="col-auto">
-                                    <a href="medical-cannabis-guide.html" class="btn btn-outline-success">
+                                    <a href="מדריך-קנאביס-רפואי.html" class="btn btn-outline-success">
                                         <i class="bi bi-heart-pulse me-2"></i>קנאביס רפואי
                                     </a>
                                 </div>
@@ -450,3 +428,4 @@
 </body>
 
 </html>
+

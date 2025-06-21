@@ -640,3 +640,226 @@ function updateCityHours() {
         }
     });
 }
+
+/**
+ * Enhanced Image Lazy Loading with WebP support
+ */
+function initAdvancedImageLazyLoading() {
+    // Check for native lazy loading support
+    const supportsLazyLoading = 'loading' in HTMLImageElement.prototype;
+    
+    if (supportsLazyLoading) {
+        // Use native lazy loading for supported browsers
+        const images = document.querySelectorAll('img[data-src]');
+        images.forEach(img => {
+            img.loading = 'lazy';
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+        });
+    } else {
+        // Fallback to Intersection Observer
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    loadImageWithOptimization(img);
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.1
+        });
+
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        lazyImages.forEach(img => imageObserver.observe(img));
+    }
+}
+
+// Load image with WebP detection and optimization
+function loadImageWithOptimization(img) {
+    const src = img.dataset.src;
+    if (!src) return;
+
+    // Check for WebP support
+    const supportsWebP = checkWebPSupport();
+    
+    // Try WebP version first if supported
+    if (supportsWebP && !src.includes('.webp')) {
+        const webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+        tryLoadImage(webpSrc, img, src);
+    } else {
+        loadImage(src, img);
+    }
+}
+
+// Check WebP support
+function checkWebPSupport() {
+    if (window.webpSupported !== undefined) {
+        return window.webpSupported;
+    }
+    
+    const canvas = document.createElement('canvas');
+    canvas.width = 1;
+    canvas.height = 1;
+    window.webpSupported = canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+    return window.webpSupported;
+}
+
+// Try to load WebP image with fallback
+function tryLoadImage(webpSrc, img, fallbackSrc) {
+    const testImg = new Image();
+    testImg.onload = () => loadImage(webpSrc, img);
+    testImg.onerror = () => loadImage(fallbackSrc, img);
+    testImg.src = webpSrc;
+}
+
+// Load image with proper error handling and alt text validation
+function loadImage(src, img) {
+    // Validate alt attribute
+    if (!img.alt || img.alt.trim() === '') {
+        img.alt = generateAltText(img, src);
+    }
+    
+    const imageLoader = new Image();
+    imageLoader.onload = () => {
+        img.src = src;
+        img.classList.remove('loading');
+        img.classList.add('loaded');
+        img.removeAttribute('data-src');
+    };
+    
+    imageLoader.onerror = () => {
+        img.classList.remove('loading');
+        img.classList.add('error');
+        handleImageError(img);
+    };
+    
+    imageLoader.src = src;
+}
+
+// Generate meaningful alt text
+function generateAltText(img, src) {
+    // Extract context from surrounding elements
+    const parentSection = img.closest('section, article');
+    const parentText = parentSection ? parentSection.textContent.trim() : '';
+    
+    // Generate alt text based on context
+    if (src.includes('cannabis') || src.includes('weed')) {
+        return 'תמונה הקשורה לקנאביס רפואי';
+    } else if (src.includes('telegram')) {
+        return 'לוגו טלגרם וערוצי כיוונים';
+    } else if (src.includes('city') || src.includes('location')) {
+        return 'תמונה של מיקום או עיר בישראל';
+    } else if (src.includes('guide')) {
+        return 'תמונה הקשורה למדריך טלגראס';
+    } else if (parentText && parentText.length > 10) {
+        return parentText.substring(0, 50) + '...';
+    }
+    
+    return 'תמונה - טלגראס כיוונים ישראל';
+}
+
+// Handle image loading errors
+function handleImageError(img) {
+    const fallback = document.createElement('div');
+    fallback.className = 'image-fallback';
+    fallback.innerHTML = `
+        <div class="image-placeholder">
+            <i class="bi bi-image-alt"></i>
+            <p class="text-muted small mt-2">תמונה לא זמינה</p>
+        </div>
+    `;
+    
+    // Replace image with fallback
+    if (img.parentNode) {
+        img.parentNode.replaceChild(fallback, img);
+    }
+}
+
+// Preload critical images
+function preloadCriticalImages() {
+    const criticalImages = document.querySelectorAll('[data-critical="true"], .hero-section img, .navbar img');
+    
+    criticalImages.forEach(img => {
+        const src = img.src || img.dataset.src;
+        if (src) {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = src;
+            document.head.appendChild(link);
+        }
+    });
+}
+
+// Add responsive image srcset
+function addResponsiveImageSrcset() {
+    const images = document.querySelectorAll('img[data-responsive]');
+    
+    images.forEach(img => {
+        const baseSrc = img.dataset.responsive;
+        const breakpoints = [320, 640, 1024, 1200];
+        
+        const srcset = breakpoints.map(width => {
+            const responsiveSrc = baseSrc.replace(/\.(jpg|jpeg|png)$/i, `_${width}w.$1`);
+            return `${responsiveSrc} ${width}w`;
+        }).join(', ');
+        
+        img.srcset = srcset;
+        img.sizes = '(max-width: 320px) 320px, (max-width: 640px) 640px, (max-width: 1024px) 1024px, 1200px';
+    });
+}
+
+// Initialize image optimization on DOM ready
+function initImageOptimization() {
+    preloadCriticalImages();
+    initAdvancedImageLazyLoading();
+    addResponsiveImageSrcset();
+    validateAllImageAltAttributes();
+}
+
+// Validate all image alt attributes
+function validateAllImageAltAttributes() {
+    const images = document.querySelectorAll('img');
+    let missingAltCount = 0;
+    
+    images.forEach((img, index) => {
+        if (!img.alt || img.alt.trim() === '') {
+            const altText = generateAltText(img, img.src || img.dataset.src || '');
+            img.alt = altText;
+            missingAltCount++;
+        }
+    });
+    
+    if (missingAltCount > 0) {
+        console.warn(`Added alt attributes to ${missingAltCount} images for better SEO`);
+    }
+}
+
+// Initialize all optimizations when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeOptimizations);
+} else {
+    initializeOptimizations();
+}
+
+function initializeOptimizations() {
+    // Initialize image optimizations
+    initImageOptimization();
+    
+    // Initialize other existing functions if they exist
+    if (typeof initPreloader === 'function') initPreloader();
+    if (typeof initScrollProgress === 'function') initScrollProgress();
+    if (typeof initTypingEffect === 'function') initTypingEffect();
+    if (typeof initSmoothScrolling === 'function') initSmoothScrolling();
+    if (typeof initAnimations === 'function') initAnimations();
+    if (typeof initPerformanceMonitoring === 'function') initPerformanceMonitoring();
+    if (typeof initIconAnimations === 'function') initIconAnimations();
+    if (typeof initIconReplacements === 'function') initIconReplacements();
+    
+    // Initialize status updates if exists
+    if (typeof updateCityStatuses === 'function') updateCityStatuses();
+    
+    console.log('All SEO and performance optimizations initialized');
+}

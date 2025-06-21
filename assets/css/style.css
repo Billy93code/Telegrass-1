@@ -801,143 +801,211 @@ footer a:hover {
     }
 }
 
-/* Loading Animation for Images */
-.card-img-top {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: loading 1.5s infinite;
+/* Image Optimization Styles */
+
+/* Lazy loading placeholder styles */
+img {
+    transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
-@keyframes loading {
+img.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: imageLoading 1.5s infinite;
+    filter: blur(5px);
+    opacity: 0.7;
+}
+
+img.loaded {
+    opacity: 1;
+    filter: none;
+}
+
+img.error {
+    opacity: 0.5;
+    filter: grayscale(100%);
+}
+
+@keyframes imageLoading {
     0% { background-position: 200% 0; }
     100% { background-position: -200% 0; }
 }
 
-/* Scroll Indicator */
-.scroll-indicator {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--gradient-green);
-    z-index: 9999;
-    transform-origin: left;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+/* Image fallback styles */
+.image-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    min-height: 200px;
+    text-align: center;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 12px;
+.image-placeholder {
+    padding: 2rem;
 }
 
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
+.image-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #6c757d;
 }
 
-::-webkit-scrollbar-thumb {
-    background: var(--gradient-green);
-    border-radius: 6px;
+/* WebP support detection */
+.webp img[data-webp] {
+    content: attr(data-webp);
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--dark-green);
+/* Responsive image optimization */
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
-/* RTL Improvements */
-[dir="rtl"] .navbar-nav {
-    text-align: right;
-}
-
-[dir="rtl"] .card-title,
-[dir="rtl"] .lead,
-[dir="rtl"] h1, h2, h3, h4, h5, h6 {
-    text-align: right;
-}
-
-/* Cannabis Theme Elements */
-.cannabis-pattern {
+/* Progressive loading blur-up effect */
+.progressive-image {
     position: relative;
+    overflow: hidden;
 }
 
-.cannabis-pattern::before {
-    content: '';
+.progressive-image img {
+    transition: opacity 0.3s ease;
+}
+
+.progressive-image img.small {
+    filter: blur(5px);
+    transform: scale(1.05);
+}
+
+.progressive-image img.loaded {
+    filter: none;
+    transform: scale(1);
+}
+
+/* Image aspect ratio containers */
+.image-16-9 {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+}
+
+.image-16-9 img {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a7c59' fill-opacity='0.05'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Hover Effects */
-.hover-lift {
-    transition: all 0.3s ease;
+.image-4-3 {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%; /* 4:3 aspect ratio */
+    overflow: hidden;
 }
 
-.hover-lift:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+.image-4-3 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Text Gradient */
-.text-gradient {
-    background: var(--gradient-green);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.image-1-1 {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* 1:1 aspect ratio */
+    overflow: hidden;
 }
 
-/* Success States */
-.success-message {
-    background: linear-gradient(135deg, #d4edda, #c3e6cb);
-    border: 1px solid #b6d7a8;
-    color: #155724;
-    padding: 1rem;
-    border-radius: 10px;
-    margin: 1rem 0;
+.image-1-1 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Cannabis Icons */
-.cannabis-icon {
-    display: inline-block;
-    font-size: 1.2rem;
-    color: var(--accent-green);
-    margin-right: 0.5rem;
+/* Hero section image optimization */
+.hero-section .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
 }
 
-/* Particle Animation Background */
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+.hero-section .hero-image.loading {
+    filter: blur(10px);
+    opacity: 0.5;
 }
 
-.floating-element {
-    animation: float 6s ease-in-out infinite;
+/* Critical image preload support */
+img[data-critical="true"] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-/* High Contrast Mode Support */
-@media (prefers-contrast: high) {
-    :root {
-        --primary-green: #1a4a00;
-        --secondary-green: #2d5016;
-        --text-dark: #000000;
+img[data-critical="true"].loaded {
+    opacity: 1;
+}
+
+/* Performance optimization for images */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* High DPI display optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Mobile image optimization */
+@media (max-width: 768px) {
+    .image-fallback {
+        min-height: 150px;
     }
     
-    .card {
-        border: 2px solid #000000;
+    .image-placeholder i {
+        font-size: 2rem;
     }
 }
 
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+/* Scroll-based image loading optimization */
+img[data-src] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+img[data-src].loaded {
+    opacity: 1;
+}
+
+/* Intersection Observer support detection */
+@supports (selector(::-webkit-details-marker)) {
+    img[loading="lazy"] {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    img[loading="lazy"].loaded {
+        opacity: 1;
     }
 }
 
@@ -984,5 +1052,83 @@ footer a:hover {
     
     .btn-directions i {
         font-size: 0.9rem;
+    }
+}
+
+/* Cities Page Styles */
+.search-box {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.search-box input {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 1rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.search-box input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-box input:focus {
+    border-color: var(--cannabis-gold);
+    box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.region-header {
+    margin: 3rem 0 2rem 0;
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--primary-green);
+}
+
+.region-header h2 {
+    color: var(--primary-green);
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.city-link {
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
+    background: var(--gradient-light);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--primary-green);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.city-link:hover {
+    background: var(--primary-green);
+    color: white;
+    border-color: var(--cannabis-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(45, 80, 22, 0.2);
+}
+
+.city-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(45, 80, 22, 0.25);
+}
+
+/* Cities grid responsive */
+@media (max-width: 768px) {
+    .region-header {
+        margin: 2rem 0 1rem 0;
+    }
+    
+    .city-link {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
     }
 }

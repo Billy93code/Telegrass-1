@@ -3,61 +3,46 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Detect if we're in a subfolder and adjust component paths
-    const pathLevel = window.location.pathname.includes('/cities/') ? '../' : '';
+    // Detect if we're in cities folder
+    const inCities = window.location.pathname.includes('/cities/');
+    const path = inCities ? '../components/' : 'components/';
     
-    // Load navigation
-    loadComponent('navbar-container', pathLevel + 'components/navbar.html');
-    
-    // Load footer
-    loadComponent('footer-container', pathLevel + 'components/footer.html');
-    
-    // Handle active link highlighting
-    setTimeout(highlightActiveLink, 100); // Small delay to ensure component is loaded
+    // Load navbar and footer
+    loadComponent('navbar-container', path + 'navbar.html');
+    loadComponent('footer-container', path + 'footer.html');
 });
 
 /**
  * Load component into a container
- * @param {string} containerId - ID of the container element
- * @param {string} componentPath - Path to the component HTML file
  */
 function loadComponent(containerId, componentPath) {
     const container = document.getElementById(containerId);
     if (!container) return;
     
     fetch(componentPath)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.text();
-        })
+        .then(response => response.text())
         .then(html => {
+            // If we're in cities folder and loading navbar, adjust paths
+            if (containerId === 'navbar-container' && window.location.pathname.includes('/cities/')) {
+                html = adjustNavbarPaths(html);
+            }
             container.innerHTML = html;
-            // Dispatch an event to signal the component has loaded
-            document.dispatchEvent(new CustomEvent('componentLoaded', { detail: { id: containerId } }));
         })
         .catch(error => {
-            console.error(`Error loading component from ${componentPath}:`, error);
-            container.innerHTML = `<div class="alert alert-danger">Failed to load component</div>`;
+            console.error(`Error loading ${componentPath}:`, error);
+            container.innerHTML = '<div class="alert alert-danger">Failed to load component</div>';
         });
 }
 
 /**
- * Highlight the active link in the navigation based on current page
+ * Adjust navbar paths for cities subfolder
  */
-function highlightActiveLink() {
-    const currentPage = window.location.pathname.split('/').pop();
-    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        
-        const href = link.getAttribute('href');
-        if (href === currentPage || 
-            (currentPage === '' && href === 'index.html') || 
-            (currentPage === 'index.html' && href === 'index.html')) {
-            link.classList.add('active');
+function adjustNavbarPaths(html) {
+    // Replace all href attributes that don't already start with ../ or http
+    return html.replace(/href="([^"]*\.html[^"]*)"/g, (match, url) => {
+        if (url.startsWith('../') || url.startsWith('http') || url.startsWith('#')) {
+            return match;
         }
+        return `href="../${url}"`;
     });
 }
