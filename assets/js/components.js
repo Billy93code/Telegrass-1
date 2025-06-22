@@ -1,20 +1,18 @@
 /**
  * Component Loader - Load reusable components
- * Optimized to prevent navbar flickering by loading synchronously
+ * Optimized to prevent navbar flickering by loading asynchronously with fallback
  */
 
-// Synchronous component loader using XMLHttpRequest for immediate loading
-function loadComponentSync(elementId, componentPath) {
+// Asynchronous component loader with immediate fallback to prevent flickering
+async function loadComponentAsync(elementId, componentPath) {
     const element = document.getElementById(elementId);
     if (!element) return false;
 
     try {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', componentPath, false); // false = synchronous
-        xhr.send();
+        const response = await fetch(componentPath);
         
-        if (xhr.status === 200) {
-            let html = xhr.responseText;
+        if (response.ok) {
+            let html = await response.text();
             
             // If we're in cities folder and loading navbar, adjust paths
             if (elementId === 'navbar-container' && window.location.pathname.includes('/cities/')) {
@@ -33,35 +31,12 @@ function loadComponentSync(elementId, componentPath) {
             
             return true;
         } else {
-            throw new Error(`HTTP ${xhr.status}`);
+            throw new Error(`HTTP ${response.status}`);
         }
     } catch (error) {
         console.warn(`Failed to load ${componentPath}:`, error);
         return false;
     }
-}
-
-// Asynchronous component loader for non-critical components
-function loadComponentAsync(containerId, componentPath) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    
-    fetch(componentPath)
-        .then(response => {
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            return response.text();
-        })
-        .then(html => {
-            // If we're in cities folder and loading navbar, adjust paths
-            if (containerId === 'navbar-container' && window.location.pathname.includes('/cities/')) {
-                html = adjustNavbarPaths(html);
-            }
-            container.innerHTML = html;
-        })
-        .catch(error => {
-            console.error(`Error loading ${componentPath}:`, error);
-            container.innerHTML = '<div class="alert alert-danger">Failed to load component</div>';
-        });
 }
 
 /**
@@ -77,18 +52,17 @@ function adjustNavbarPaths(html) {
     });
 }
 
-// Load navbar IMMEDIATELY (synchronously) to prevent flickering
-const inCities = window.location.pathname.includes('/cities/');
-const basePath = inCities ? '../components/' : 'components/';
-
-// Critical: Load navbar synchronously before page renders
-// This runs as soon as the script is loaded, not after DOM ready
-(function() {
+// Load navbar and components when DOM is ready
+document.addEventListener('DOMContentLoaded', async function() {
+    const inCities = window.location.pathname.includes('/cities/');
+    const basePath = inCities ? '../components/' : 'components/';
+    
+    // Load navbar first (critical component)
     const navbarContainer = document.getElementById('navbar-container');
     if (navbarContainer) {
-        const success = loadComponentSync('navbar-container', basePath + 'navbar.html');
+        const success = await loadComponentAsync('navbar-container', basePath + 'navbar.html');
         
-        // Fallback if sync loading fails
+        // Fallback if loading fails
         if (!success) {
             navbarContainer.innerHTML = `
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark-green fixed-top" style="background-color: #1a3409 !important;">
@@ -105,12 +79,10 @@ const basePath = inCities ? '../components/' : 'components/';
                 </nav>`;
         }
     }
-})();
-
-// Load footer when DOM is ready (can be asynchronous)
-document.addEventListener('DOMContentLoaded', function() {
+    
+    // Load footer (non-critical component)
     const footerContainer = document.getElementById('footer-container') || document.getElementById('footer-placeholder');
     if (footerContainer && !footerContainer.innerHTML.trim()) {
-        loadComponentAsync(footerContainer.id, basePath + 'footer.html');
+        await loadComponentAsync(footerContainer.id, basePath + 'footer.html');
     }
 });
