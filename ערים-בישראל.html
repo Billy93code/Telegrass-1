@@ -71,6 +71,80 @@
         }
     }
     </script>
+
+    <!-- City List Styles -->
+    <style>
+        .region-header {
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #2d5016;
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .region-header h2 {
+            font-size: 1.5rem;
+            color: #2d5016;
+            font-weight: 800;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .city-link {
+            display: block;
+            background: #f8f9fa;
+            border-radius: 18px;
+            padding: 1.1rem 1.2rem;
+            margin-bottom: 1.1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2d5016;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(45, 80, 22, 0.07);
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            border: 2px solid #e6c54710;
+        }
+
+        .city-link:hover,
+        .city-link:focus {
+            background: #e6c547;
+            color: #0d1a06;
+            box-shadow: 0 4px 16px rgba(45, 80, 22, 0.13);
+            text-decoration: none;
+            border-color: #e6c547;
+        }
+
+        .row>div {
+            margin-bottom: 0.5rem;
+        }
+
+        .search-box {
+            margin: 2rem auto 1.5rem auto;
+            max-width: 400px;
+        }
+
+        .search-box input {
+            border-radius: 25px;
+            border: 2px solid #2d5016;
+            font-size: 1.1rem;
+            padding: 0.75rem 1.5rem;
+            box-shadow: 0 2px 8px rgba(45, 80, 22, 0.07);
+        }
+
+        @media (max-width: 768px) {
+            .region-header h2 {
+                font-size: 1.1rem;
+            }
+
+            .city-link {
+                font-size: 1rem;
+                padding: 0.9rem 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>    <!-- Navigation -->
@@ -148,7 +222,7 @@
                 <a href="cities/רחובות-כיוונים.html" class="city-link">טלגראס כיוונים רחובות</a>
             </div>
             <div class="col-md-3 col-sm-6">
-                <a href="cities/הרצליה-כיוונים.html" class="city-link">טלגראس הרצליה</a>
+                <a href="cities/הרצליה-כיוונים.html" class="city-link">טלגראס הרצליה</a>
             </div>
             <div class="col-md-3 col-sm-6">
                 <a href="cities/רעננה-כיוונים.html" class="city-link">טלגראס כיוונים רעננה</a>
