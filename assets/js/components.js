@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const inCities = window.location.pathname.includes('/cities/');
     const path = inCities ? '../components/' : 'components/';
     
-    // Check if we're on the homepage (index.html has inlined navbar for LCP performance)
-    const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname.endsWith('/');    // Load navbar component only for non-homepage pages
-    if (!isHomepage) {
+    // Load navbar component for ALL pages (now unified across the site)
+    if (document.getElementById('navbar-container')) {
         loadComponent('navbar-container', path + 'navbar.html');
     }
-      // Always load footer component
+    
+    // Always load footer component
     if (document.getElementById('footer-container')) {
         loadComponent('footer-container', path + 'footer.html');
     } else if (document.getElementById('footer-placeholder')) {

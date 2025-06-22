@@ -251,46 +251,10 @@
 </head>
 
 <body>
-    <!-- Navigation - Inlined for LCP performance -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-green fixed-top">
-        <div class="container">            <a class="navbar-brand fw-bold" href="index.html">
-                🌿 טלגראס כיוונים
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">בית</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="מדריך-טלגרם.html">מדריך טלגרם</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="מדריך-קנאביס-רפואי.html">קנאביס רפואי</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="זנים-פופולריים-בישראל.html">זנים פופולריים</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="שאלות-נפוצות.html">שאלות נפוצות</a>
-                    </li>                    <li class="nav-item">
-                        <a class="nav-link" href="ערים-בישראל.html">
-                            🏙️ כל הערים
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Always Visible Directions Button -->
-            <div class="directions-btn-container">                <a href="ערים-בישראל.html" class="btn btn-directions">
-                    📍 כיוונים
-                </a>
-            </div>
-        </div>
-    </nav><!-- Hero Section -->
+    <!-- Navigation - Inlined for LCP performance -->    <!-- Navigation - Loaded from component -->
+    <nav id="navbar-container"></nav>
+    
+    <!-- Hero Section -->
     <section id="home" class="hero-section">
         <div class="hero-overlay"></div>
         <div class="container">
