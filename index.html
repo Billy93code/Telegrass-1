@@ -202,37 +202,27 @@
     <link rel="preload" href="/assets/js/critical-css.js" as="script">
 
     <!-- Critical CSS Inlining -->
-    <script>        // Critical CSS - ZERO ANIMATIONS - IMMEDIATE RENDER
+    <script>        // Inline critical CSS for faster rendering - NO ANIMATIONS
         const criticalCSS = `
-            :root{--primary-green:#2d5016;--secondary-green:#4a7c59;--accent-green:#7cb342;--cannabis-gold:#d4af37;--text-dark:#2c3e50;--gradient-green:linear-gradient(135deg,#2d5016 0%,#4a7c59 100%)}
-            *{box-sizing:border-box;animation:none!important;transition:none!important}
+            :root{--primary-green:#2d5016;--secondary-green:#4a7c59;--accent-green:#7cb342;--cannabis-gold:#d4af37}
+            *{box-sizing:border-box}
             html{scroll-behavior:smooth}
-            body{font-family:'Heebo',sans-serif;line-height:1.6;color:var(--text-dark);margin:0;padding:0;overflow-x:hidden}
+            body{font-family:'Heebo',sans-serif;line-height:1.6;color:#2c3e50;margin:0;padding:0}
             .container{width:100%;padding:0 15px;margin:0 auto;max-width:1140px}
-            .row{display:flex;flex-wrap:wrap;margin:-15px}
-            .col-lg-6{position:relative;width:100%;padding:0 15px;flex:0 0 50%;max-width:50%}
-            .hero-section{min-height:100vh;background:linear-gradient(135deg,rgba(45,80,22,0.8),rgba(74,124,89,0.8)),url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920') center/cover;display:flex;align-items:center;position:relative;overflow:hidden}
+            .hero-section{min-height:100vh;background:linear-gradient(135deg,rgba(45,80,22,0.8),rgba(74,124,89,0.8));display:flex;align-items:center}
             .hero-section .container{position:relative;z-index:2}
             .text-center{text-align:center!important}
             .text-white{color:#fff!important}
-            .min-vh-100{min-height:100vh!important}
-            .align-items-center{align-items:center!important}
-            .display-3{font-size:2.5rem;font-weight:700;line-height:1.2;margin:0;text-shadow:2px 2px 4px rgba(0,0,0,0.5)}
-            .hero-section h1{font-size:2.5rem!important;font-weight:700!important;line-height:1.2!important;text-shadow:2px 2px 4px rgba(0,0,0,0.5)!important;margin-bottom:1.5rem!important;opacity:1!important;visibility:visible!important;transform:none!important}
-            .hero-section h2{font-size:1.4rem!important;font-weight:400!important;line-height:1.5!important;text-shadow:1px 1px 2px rgba(0,0,0,0.5)!important;color:#fff!important;margin-bottom:3rem!important;opacity:1!important;visibility:visible!important;transform:none!important}
+            .display-3{font-size:2.5rem;font-weight:700;line-height:1.2;margin-bottom:1.5rem}
+            .hero-section h1{font-size:2.5rem;font-weight:700;line-height:1.2;text-shadow:2px 2px 4px rgba(0,0,0,0.5)}
+            .hero-section h2{font-size:1.4rem;font-weight:400;line-height:1.5;text-shadow:1px 1px 2px rgba(0,0,0,0.5);color:#fff}
             .mb-4{margin-bottom:1.5rem!important}
             .mb-5{margin-bottom:3rem!important}
-            .fw-bold{font-weight:700!important}
-            .btn{display:inline-block;padding:0.7rem 2rem;border-radius:50px;font-weight:500;text-decoration:none;border-width:2px;text-align:center;vertical-align:middle;cursor:pointer;line-height:1.5;animation:none!important;transition:none!important}
-            .btn-primary{background:var(--gradient-green);border-color:var(--primary-green);color:#fff;box-shadow:0 4px 15px rgba(45,80,22,0.3)}
-            .btn-outline-light{background:transparent;border:2px solid #fff;color:#fff}
+            .btn{display:inline-block;padding:0.7rem 2rem;border-radius:50px;transition:all 0.15s ease-in-out;font-weight:500;text-decoration:none}
+            .btn-primary{background:linear-gradient(135deg,#2d5016 0%,#4a7c59 100%);color:#fff;border:2px solid #2d5016}
             .btn-lg{padding:1rem 2.5rem;font-size:1.1rem}
-            .me-3{margin-right:1rem!important}
-            .me-2{margin-right:0.5rem!important}
             img{max-width:100%;height:auto}
-            /* Override ANY possible animations */
-            *,*::before,*::after{animation-duration:0s!important;animation-delay:0s!important;transition-duration:0s!important;transition-delay:0s!important}
-            .hero-section *{opacity:1!important;visibility:visible!important;transform:none!important}
+            .animate-fade-in-delay{animation:none!important;opacity:1!important;transform:none!important}
         `;
         const style = document.createElement('style');
         style.textContent = criticalCSS;
@@ -253,7 +243,7 @@
                     <h2 class="mb-5">
                         המקום הטוב ביותר למידע עדכני על טלגראס כיוונים, כיוונים וקנאביס בישראל
                     </h2>
-                    <div>
+                    <div class="animate-fade-in-delay">
                         <a href="#directions" class="btn btn-primary btn-lg me-3">
                             <i class="bi bi-geo-alt me-2"></i>
                             לכיוונים לחץ כאן!
@@ -672,38 +662,15 @@
             </div>
         </div>
     </section> <!-- Footer -->
-    <div id="footer-container"></div>    <!-- Bootstrap JS -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Disable animations for critical content -->
-    <script>
-        // Disable all animations on hero section for immediate LCP
-        document.addEventListener('DOMContentLoaded', function() {
-            const heroSection = document.querySelector('.hero-section');
-            if (heroSection) {
-                const allElements = heroSection.querySelectorAll('*');
-                allElements.forEach(el => {
-                    el.style.opacity = '1';
-                    el.style.visibility = 'visible';
-                    el.style.transform = 'none';
-                    el.style.animation = 'none';
-                    el.style.transition = 'none';
-                });
-            }
-        });
-    </script>
-    <!-- Component JS - Load after critical content is visible -->
+    <!-- Component JS -->
     <script src="assets/js/components.js" defer></script>
-    <!-- Custom JS - Load after critical content is visible -->
-    <script>
-        // Load main.js after LCP to avoid render blocking
-        setTimeout(() => {
-            const script = document.createElement('script');
-            script.src = 'assets/js/main.js';
-            script.defer = true;
-            document.head.appendChild(script);
-        }, 100);
-    </script>
-    <!-- Load optimization scripts after main content -->
+    <!-- Custom JS -->
+    <script src="assets/js/main.js" defer></script>
+    <!-- Load optimization scripts before main script -->
     <script src="/assets/js/image-optimization.js" defer></script>
     <script src="/assets/js/critical-css.js" defer></script>
 </body>
