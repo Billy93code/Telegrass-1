@@ -23,16 +23,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="טלגראס כיוונים">
     <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="/manifest.json">
-
-    <!-- Preload Critical Resources -->
-    <link rel="preload" href="/assets/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="manifest" href="/manifest.json">    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/assets/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="/assets/js/main.js" as="script">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap">
-    </noscript>
 
 
 
@@ -94,7 +87,7 @@
     <meta name="distribution" content="global">
     <meta name="rating" content="general">
     <meta name="theme-color" content="#28a745">
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -189,12 +182,10 @@
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->    <!-- Bootstrap Icons - Non-blocking load -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"></noscript>
+    <!-- System fonts only for maximum performance -->
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Performance Optimization Scripts -->
@@ -205,9 +196,19 @@
     <script>        // Inline critical CSS for faster rendering - NO ANIMATIONS
         const criticalCSS = `
             :root{--primary-green:#2d5016;--secondary-green:#4a7c59;--accent-green:#7cb342;--cannabis-gold:#d4af37}
-            *{box-sizing:border-box}
-            html{scroll-behavior:smooth}            body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#2c3e50;margin:0;padding:0}
+            *{box-sizing:border-box}            html{scroll-behavior:smooth}            body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#2c3e50;margin:0;padding:0}
             .container{width:100%;padding:0 15px;margin:0 auto;max-width:1140px}
+            .navbar{padding:1rem 0;position:fixed;top:0;width:100%;z-index:1000;background:#1a3409}
+            .navbar-expand-lg{flex-flow:row nowrap;justify-content:flex-start}
+            .navbar-dark{background-color:#1a3409}
+            .bg-dark-green{background-color:#1a3409}
+            .fixed-top{position:fixed;top:0;right:0;left:0;z-index:1030}
+            .navbar .container{position:relative;display:flex;align-items:center;justify-content:space-between;padding-right:160px}
+            .navbar-brand{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:600;text-decoration:none;color:#fff;font-size:1.25rem}
+            .fw-bold{font-weight:600}
+            .me-2{margin-right:0.5rem}
+            .directions-btn-container{position:absolute;right:15px;top:50%;transform:translateY(-50%);z-index:1000}
+            .btn-directions{background:#d4af37;color:#1a3409;border:2px solid #d4af37;font-weight:600;font-size:1rem;padding:0.6rem 1.5rem;border-radius:25px;text-decoration:none;display:inline-flex;align-items:center;text-transform:uppercase;letter-spacing:0.5px}
             .hero-section{min-height:100vh;background:#2d5016;display:flex;align-items:center}
             .hero-section .container{position:relative;z-index:2}
             .text-center{text-align:center!important}
@@ -230,8 +231,52 @@
 </head>
 
 <body>
-    <!-- Navigation -->
-    <div id="navbar-container"></div> <!-- Hero Section -->
+    <!-- Navigation - Inlined for LCP performance -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-green fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-flower1 me-2"></i>
+                טלגראס כיוונים
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">בית</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="מדריך-טלגרם.html">מדריך טלגרם</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="מדריך-קנאביס-רפואי.html">קנאביס רפואי</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="זנים-פופולריים-בישראל.html">זנים פופולריים</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="שאלות-נפוצות.html">שאלות נפוצות</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ערים-בישראל.html">
+                            <i class="bi bi-building me-1"></i>
+                            כל הערים
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Always Visible Directions Button -->
+            <div class="directions-btn-container">
+                <a href="ערים-בישראל.html" class="btn btn-directions">
+                    <i class="bi bi-geo-alt me-2"></i>
+                    כיוונים
+                </a>
+            </div>
+        </div>
+    </nav><!-- Hero Section -->
     <section id="home" class="hero-section">
         <div class="hero-overlay"></div>
         <div class="container">
