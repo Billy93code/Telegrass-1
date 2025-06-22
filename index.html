@@ -176,25 +176,30 @@
             .hero-section .container{position:relative;z-index:2}
             .text-center{text-align:center!important}
             .text-white{color:#fff!important}
-            .display-3{font-size:2.5rem;font-weight:600;line-height:1.2;margin-bottom:1.5rem}            .hero-section h1{font-size:3rem;font-weight:700;line-height:1.2;color:#fff;margin-bottom:1.5rem;text-shadow:2px 2px 4px rgba(0,0,0,0.3)}
-            .hero-section h2{font-size:1.8rem;font-weight:500;line-height:1.4;color:#f8f9fa;margin-bottom:2rem;text-shadow:1px 1px 2px rgba(0,0,0,0.2)}
-            .hero-section .lead{font-size:1.2rem;color:#e9ecef;text-shadow:1px 1px 2px rgba(0,0,0,0.2)}
-            .feature-badge{background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:25px;padding:0.5rem 1rem;color:#fff;font-weight:500;display:inline-block;width:100%}
-            .btn-outline-light{border:2px solid #fff;color:#fff;background:transparent;font-weight:600;border-radius:50px}
-            .btn-outline-light:hover{background:#fff;color:#2d5016}
+            .display-3{font-size:2.5rem;font-weight:600;line-height:1.2;margin-bottom:1.5rem}            .hero-section h1{font-size:3rem;font-weight:700;line-height:1.2;color:#fff;margin-bottom:1.5rem;text-shadow:2px 2px 4px rgba(0,0,0,0.5)}
+            .hero-section h2{font-size:1.8rem;font-weight:500;line-height:1.4;color:#fff;margin-bottom:2rem;text-shadow:1px 1px 3px rgba(0,0,0,0.7)}
+            .hero-section .lead{font-size:1.2rem;color:#fff;text-shadow:1px 1px 3px rgba(0,0,0,0.7)}
+            .hero-stats{color:#fff!important;text-shadow:1px 1px 2px rgba(0,0,0,0.7)}
+            .feature-badge{background:rgba(255,255,255,0.25);backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.4);border-radius:25px;padding:0.75rem 1.25rem;color:#fff;font-weight:600;display:inline-block;width:100%;text-shadow:1px 1px 2px rgba(0,0,0,0.5)}
+            .btn-outline-light{border:3px solid #fff;color:#fff;background:rgba(255,255,255,0.1);font-weight:700;border-radius:50px;min-height:48px;padding:0.75rem 2rem}
+            .btn-outline-light:hover{background:#fff;color:#2d5016;border-color:#fff}
             .mb-4{margin-bottom:1.5rem!important}
-            .mb-5{margin-bottom:3rem!important}
-            .btn{display:inline-block;padding:0.7rem 2rem;border-radius:50px;font-weight:500;text-decoration:none;border:none;cursor:pointer;text-align:center}
-            .btn-directions{background:#d4af37;color:#1a3409;border:2px solid #d4af37;font-weight:600;font-size:1rem;padding:0.6rem 1.5rem;border-radius:25px;text-decoration:none;display:inline-flex;align-items:center;text-transform:uppercase;letter-spacing:0.5px}
-            .btn-directions:hover{background:#f4d03f;color:#1a3409;text-decoration:none}
-            .btn-lg{padding:1rem 2.5rem;font-size:1.1rem}
-            .hero-section .btn-directions{font-size:1.2rem;padding:1rem 2.5rem;border-radius:50px}
+            .mb-5{margin-bottom:3rem!important}            .btn{display:inline-block;padding:0.75rem 2rem;border-radius:50px;font-weight:600;text-decoration:none;border:none;cursor:pointer;text-align:center;min-height:48px;min-width:120px}
+            .btn-directions{background:#d4af37;color:#1a3409;border:3px solid #d4af37;font-weight:700;font-size:1.1rem;padding:0.75rem 2rem;border-radius:25px;text-decoration:none;display:inline-flex;align-items:center;text-transform:uppercase;letter-spacing:0.5px;min-height:48px}
+            .btn-directions:hover{background:#f4d03f;color:#1a3409;text-decoration:none;border-color:#f4d03f}
+            .btn-lg{padding:1rem 2.5rem;font-size:1.2rem;min-height:56px}            .hero-section .btn-directions{font-size:1.3rem;padding:1.25rem 3rem;border-radius:50px;min-height:56px}
             .row{display:flex;flex-wrap:wrap;margin-right:-15px;margin-left:-15px}
             .col-lg-6{position:relative;width:100%;padding-right:15px;padding-left:15px;flex:0 0 50%;max-width:50%}
             .align-items-center{align-items:center!important}
             .min-vh-100{min-height:100vh!important}
             img{max-width:100%;height:auto}
             .fw-bold{font-weight:700!important}
+            .card-header h5{font-size:1.25rem}
+            .btn-telegram{min-height:44px;padding:0.75rem 1.5rem;font-weight:600}
+            @media (max-width: 768px) {
+                .btn{min-height:44px;padding:0.75rem 1.5rem}
+                .btn-lg{min-height:48px;padding:1rem 2rem}
+            }
         `;
         const style = document.createElement('style');
         style.textContent = criticalCSS;
@@ -247,9 +252,8 @@
                         <a href="#guides" class="btn btn-outline-light btn-lg mb-3">
                             📚 מדריכים מקצועיים
                         </a>
-                    </div>
-                    <div class="hero-stats mt-5">
-                        <p class="text-light opacity-75">
+                    </div>                    <div class="hero-stats mt-5">
+                        <p class="text-white fw-bold">
                             <strong>⭐ מדורג #1 בישראל</strong> | <strong>🔒 100% אנונימי</strong> | <strong>🚀 עדכונים יומיים</strong>
                         </p>
                     </div>
@@ -259,9 +263,8 @@
     </section><!-- About Section -->
     <section id="about" class="py-5 bg-light-green">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="display-5 fw-bold mb-4">אודות טלגראס כיוונים</h2>
+            <div class="row justify-content-center">                <div class="col-lg-8 text-center">
+                    <h3 class="display-5 fw-bold mb-4">אודות טלגראס כיוונים</h3>
                     <p class="lead mb-5">
                         אנחנו מספקים מידע מקצועי ואמין על הקנאביס הרפואי והפנאי בישראל. 
                         המטרה שלנו היא לחנך ולהעניק מידע מדויק ועדכני לקהילה הישראלית.
@@ -295,9 +298,8 @@
     <!-- Directions Section -->
     <section id="directions" class="py-5">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-5 fw-bold mb-4">כיוונים - גוש דן</h2>
+            <div class="row">                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h3 class="display-5 fw-bold mb-4">כיוונים - גוש דן</h3>
                     <p class="lead">מצא את הכיוון הקרוב אליך באזור גוש דן</p>
                     <div class="alert alert-info">
                         <i class="bi bi-info-circle me-2"></i>
@@ -309,10 +311,9 @@
             <div class="row g-4">
                 <!-- Tel Aviv -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow-sm city-card">
-                        <div class="card-header bg-primary text-white text-center">
+                    <div class="card h-100 border-0 shadow-sm city-card">                        <div class="card-header bg-primary text-white text-center">
                             <i class="bi bi-building city-icon"></i>
-                            <h5 class="mb-0 mt-2">תל אביב</h5>
+                            <h4 class="mb-0 mt-2">תל אביב</h4>
                         </div>
                         <div class="card-body">
                             <div class="city-info mb-3">
@@ -337,10 +338,9 @@
 
                 <!-- Ramat Gan -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow-sm city-card">
-                        <div class="card-header bg-success text-white text-center">
+                    <div class="card h-100 border-0 shadow-sm city-card">                        <div class="card-header bg-success text-white text-center">
                             <i class="bi bi-tree city-icon"></i>
-                            <h5 class="mb-0 mt-2">רמת גן</h5>
+                            <h4 class="mb-0 mt-2">רמת גן</h4>
                         </div>
                         <div class="card-body">
                             <div class="city-info mb-3">
@@ -364,10 +364,9 @@
 
                 <!-- Givatayim -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow-sm city-card">
-                        <div class="card-header bg-info text-white text-center">
+                    <div class="card h-100 border-0 shadow-sm city-card">                        <div class="card-header bg-info text-white text-center">
                             <i class="bi bi-houses city-icon"></i>
-                            <h5 class="mb-0 mt-2">גבעתיים</h5>
+                            <h4 class="mb-0 mt-2">גבעתיים</h4>
                         </div>
                         <div class="card-body">
                             <div class="city-info mb-3">
@@ -394,7 +393,7 @@
                     <div class="card h-100 border-0 shadow-sm city-card">
                         <div class="card-header bg-warning text-white text-center">
                             <i class="bi bi-geo-alt city-icon"></i>
-                            <h5 class="mb-0 mt-2">פתח תקווה</h5>
+                            <h4 class="mb-0 mt-2">פתח תקווה</h5>
                         </div>
                         <div class="card-body">
                             <div class="city-info mb-3">
@@ -421,7 +420,7 @@
                     <div class="card h-100 border-0 shadow-sm city-card">
                         <div class="card-header bg-secondary text-white text-center">
                             <i class="bi bi-buildings city-icon"></i>
-                            <h5 class="mb-0 mt-2">בני ברק</h5>
+                            <h4 class="mb-0 mt-2">בני ברק</h5>
                         </div>
                         <div class="card-body">
                             <div class="city-info mb-3">
@@ -448,7 +447,7 @@
                     <div class="card h-100 border-0 shadow-sm city-card">
                         <div class="card-header bg-dark text-white text-center">
                             <i class="bi bi-house city-icon"></i>
-                            <h5 class="mb-0 mt-2">חולון</h5>
+                            <h4 class="mb-0 mt-2">חולון</h5>
                         </div>
                         <div class="card-body">
                             <div class="city-info mb-3">
@@ -475,7 +474,7 @@
                     <div class="card h-100 border-0 shadow-sm city-card">
                         <div class="card-header bg-primary text-white text-center">
                             <i class="bi bi-water city-icon"></i>
-                            <h5 class="mb-0 mt-2">בת ים</h5>
+                            <h4 class="mb-0 mt-2">בת ים</h5>
                         </div>
                         <div class="card-body">
                             <div class="city-info mb-3">
@@ -502,7 +501,7 @@
                     <div class="card h-100 border-0 shadow-sm city-card">
                         <div class="card-header bg-success text-white text-center">
                             <i class="bi bi-flower1 city-icon"></i>
-                            <h5 class="mb-0 mt-2">ראשון לציון</h5>
+                            <h4 class="mb-0 mt-2">ראשון לציון</h5>
                         </div>
                         <div class="card-body">
                             <div class="city-info mb-3">
@@ -529,7 +528,7 @@
                     <div class="card h-100 border-0 shadow-sm city-card">
                         <div class="card-header bg-info text-white text-center">
                             <i class="bi bi-mortarboard city-icon"></i>
-                            <h5 class="mb-0 mt-2">רחובות</h5>
+                            <h4 class="mb-0 mt-2">רחובות</h5>
                         </div>
                         <div class="card-body">
                             <div class="city-info mb-3">
@@ -575,7 +574,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-5 fw-bold mb-4">מדריכים מקצועיים</h2>
+                    <h3 class="display-5 fw-bold mb-4">מדריכים מקצועיים</h3>
                     <p class="lead">מדריכים מפורטים לכל הנושאים הקשורים לקנאביס</p>
                 </div>
             </div>
