@@ -202,22 +202,28 @@
     <link rel="preload" href="/assets/js/critical-css.js" as="script">
 
     <!-- Critical CSS Inlining -->
-    <script>
-        // Inline critical CSS for faster rendering
+    <script>        // Inline critical CSS for faster rendering
         const criticalCSS = `
             :root{--primary-green:#2d5016;--secondary-green:#4a7c59;--accent-green:#7cb342;--cannabis-gold:#d4af37}
             *{box-sizing:border-box}
             html{scroll-behavior:smooth}
             body{font-family:'Heebo',sans-serif;line-height:1.6;color:#2c3e50;margin:0;padding:0}
-            .container{width:100%;padding:0 15px;margin:0 auto}
+            .container{width:100%;padding:0 15px;margin:0 auto;max-width:1140px}
             .hero-section{min-height:100vh;background:linear-gradient(135deg,rgba(45,80,22,0.8),rgba(74,124,89,0.8));display:flex;align-items:center}
+            .hero-section .container{position:relative;z-index:2}
             .text-center{text-align:center!important}
             .text-white{color:#fff!important}
-            .btn{display:inline-block;padding:0.375rem 0.75rem;border-radius:0.25rem;transition:all 0.15s ease-in-out}
-            .btn-telegram{background:linear-gradient(45deg,#0088cc,#00acc1);color:white;border:none;padding:1rem 2rem;font-weight:600;border-radius:50px}
+            .display-3{font-size:2.5rem;font-weight:700;line-height:1.2}
+            .lead{font-size:1.3rem;font-weight:400}
+            .mb-4{margin-bottom:1.5rem!important}
+            .mb-5{margin-bottom:3rem!important}
+            .btn{display:inline-block;padding:0.7rem 2rem;border-radius:50px;transition:all 0.15s ease-in-out;font-weight:500;text-decoration:none}
+            .btn-primary{background:linear-gradient(135deg,#2d5016 0%,#4a7c59 100%);color:#fff;border:2px solid #2d5016}
+            .btn-telegram{background:linear-gradient(135deg,#0088cc,#229ed9);color:white;border:none;padding:1rem 2rem;font-weight:600;border-radius:50px}
             img{max-width:100%;height:auto;transition:opacity 0.3s ease}
             img.loading{opacity:0.7;filter:blur(5px)}
             img.loaded{opacity:1;filter:none}
+            .hero-section h1,.hero-section p{opacity:1;transform:translateY(0)}
         `;
         const style = document.createElement('style');
         style.textContent = criticalCSS;
@@ -231,15 +237,14 @@
     <section id="home" class="hero-section">
         <div class="hero-overlay"></div>
         <div class="container">
-            <div class="row align-items-center min-vh-100">
-                <div class="col-lg-6 text-white">
-                    <h1 class="display-3 fw-bold mb-4 animate-fade-in">
+            <div class="row align-items-center min-vh-100">                <div class="col-lg-6 text-white">
+                    <h1 class="display-3 fw-bold mb-4">
                         טלגראס כיוונים
                     </h1>
-                    <p class="lead mb-5 animate-fade-in-delay">
+                    <p class="lead mb-5">
                         המקום הטוב ביותר למידע עדכני על טלגראס כיוונים, כיוונים וקנאביס בישראל
                     </p>
-                    <div class="animate-fade-in-delay-2">
+                    <div class="animate-fade-in-delay">
                         <a href="#directions" class="btn btn-primary btn-lg me-3">
                             <i class="bi bi-geo-alt me-2"></i>
                             לכיוונים לחץ כאן!
