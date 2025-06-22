@@ -139,26 +139,12 @@ function initScrollProgress() {
 }
 
 /**
- * Typing effect for hero title
+ * Typing effect for hero title - DISABLED FOR LCP PERFORMANCE
  */
 function initTypingEffect() {
-    const heroTitle = document.querySelector('.hero-section h1');
-    if (!heroTitle) return;
-    
-    const text = heroTitle.textContent;
-    heroTitle.textContent = '';
-    
-    let i = 0;
-    const typeWriter = () => {
-        if (i < text.length) {
-            heroTitle.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 100);
-        }
-    };
-    
-    // Start typing effect after a delay
-    setTimeout(typeWriter, 1000);
+    // Typing effect disabled to improve LCP performance
+    // Hero title now displays immediately without letter-by-letter animation
+    return;
 }
 
 /**
@@ -851,7 +837,7 @@ function initializeOptimizations() {
     // Initialize other existing functions if they exist
     if (typeof initPreloader === 'function') initPreloader();
     if (typeof initScrollProgress === 'function') initScrollProgress();
-    if (typeof initTypingEffect === 'function') initTypingEffect();
+    // if (typeof initTypingEffect === 'function') initTypingEffect(); // Disabled for LCP performance
     if (typeof initSmoothScrolling === 'function') initSmoothScrolling();
     if (typeof initAnimations === 'function') initAnimations();
     if (typeof initPerformanceMonitoring === 'function') initPerformanceMonitoring();
