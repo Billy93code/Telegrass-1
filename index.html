@@ -27,29 +27,6 @@
     <link rel="preload" href="/assets/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="/assets/js/main.js" as="script">
 
-
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
-    <script>
-        DisableDevtool({
-            ondevtoolopen: (type, next) => {
-                // Log to your server
-                fetch('/log-devtool-activation', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        activated: true,
-                        type: type,
-                        timestamp: new Date().toISOString()
-                    })
-                }).catch(err => console.error('Log failed:', err));
-
-                // Redirect to a blank page
-                window.location.replace('about:blank');
-            }
-        });
-    </script> -->
-
     <!-- Primary SEO Tags -->
     <title>טלגראס כיוונים | טלגרם כיוונים קנאביס ישראל - וויד להתארגן בישראל</title>
     <meta name="description"
@@ -181,60 +158,35 @@
     </script>    <!-- Bootstrap 5 CSS - Non-blocking load -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"></noscript>
-    <!-- Bootstrap Icons -->    <!-- Bootstrap Icons - Non-blocking load -->
+    <!-- Bootstrap Icons - Non-blocking load -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"></noscript>    <!-- System fonts only for maximum performance -->
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"></noscript>
     <!-- Custom CSS - Non-blocking load -->
-    <noscript><link rel="stylesheet" href="assets/css/style.css"></noscript>
-    <!-- Performance Optimization Scripts -->
-    <link rel="preload" href="/assets/js/image-optimization.js" as="script">
-    <link rel="preload" href="/assets/js/critical-css.js" as="script">
-
-    <!-- Critical CSS Inlining -->
-    <script>        // Inline critical CSS for faster rendering - NO ANIMATIONS
+    <link rel="preload" href="assets/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/style.css"></noscript><!-- Critical CSS Inlining -->
+    <script>
+        // Inline critical CSS for faster rendering - NO ANIMATIONS
         const criticalCSS = `
             :root{--primary-green:#2d5016;--secondary-green:#4a7c59;--accent-green:#7cb342;--cannabis-gold:#d4af37}
-            *{box-sizing:border-box}            html{scroll-behavior:smooth}            body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#2c3e50;margin:0;padding:0}
+            *{box-sizing:border-box}
+            html{scroll-behavior:smooth}
+            body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#2c3e50;margin:0;padding:0}
             .container{width:100%;padding:0 15px;margin:0 auto;max-width:1140px}
-            .navbar{padding:1rem 0;position:fixed;top:0;width:100%;z-index:1000;background:#1a3409;border:none}
-            .navbar-expand-lg{flex-wrap:nowrap;justify-content:flex-start}
-            .navbar-dark{background-color:#1a3409}
-            .bg-dark-green{background-color:#1a3409}
-            .fixed-top{position:fixed;top:0;right:0;left:0;z-index:1030}
-            .navbar .container{position:relative;display:flex;align-items:center;justify-content:space-between;padding-right:160px}
-            .navbar-brand{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:600;text-decoration:none;color:#fff;font-size:1.25rem;padding-top:.3125rem;padding-bottom:.3125rem;margin-right:1rem;white-space:nowrap}
-            .fw-bold{font-weight:700!important}
-            .me-2{margin-right:0.5rem!important}
-            .me-1{margin-right:0.25rem!important}
-            .navbar-toggler{padding:.25rem .75rem;font-size:1.25rem;line-height:1;background-color:transparent;border:1px solid transparent;border-radius:.375rem}
-            .navbar-toggler-icon{display:inline-block;width:1.5em;height:1.5em;vertical-align:middle;background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:100%}
-            .collapse{display:none}
-            .navbar-collapse{flex-basis:100%;flex-grow:1;align-items:center}
-            .navbar-nav{display:flex;flex-direction:column;padding-left:0;margin-bottom:0;list-style:none}
-            .nav-item{display:list-item}
-            .nav-link{display:block;padding:.5rem 1rem;color:#fff;text-decoration:none}
-            .nav-link:hover{color:#d4af37}
-            .ms-auto{margin-left:auto!important}
-            .directions-btn-container{position:absolute;right:15px;top:50%;transform:translateY(-50%);z-index:1000}
-            .btn-directions{background:#d4af37;color:#1a3409;border:2px solid #d4af37;font-weight:600;font-size:1rem;padding:0.6rem 1.5rem;border-radius:25px;text-decoration:none;display:inline-flex;align-items:center;text-transform:uppercase;letter-spacing:0.5px}
-            .btn-directions:hover{background:#f4d03f;color:#1a3409;text-decoration:none}
-            @media (min-width:992px){
-                .navbar-expand-lg{flex-wrap:nowrap;justify-content:flex-start}
-                .navbar-expand-lg .navbar-nav{flex-direction:row}
-                .navbar-expand-lg .navbar-nav .nav-link{padding-right:.5rem;padding-left:.5rem}
-                .navbar-expand-lg .navbar-toggler{display:none}
-                .navbar-expand-lg .navbar-collapse{display:flex!important;flex-basis:auto}            }
             .hero-section{min-height:100vh;background:#2d5016;display:flex;align-items:center;padding-top:76px}
             .hero-section .container{position:relative;z-index:2}
             .text-center{text-align:center!important}
             .text-white{color:#fff!important}
-            .display-3{font-size:2.5rem;font-weight:600;line-height:1.2;margin-bottom:1.5rem}
-            .hero-section h1{font-size:2.5rem;font-weight:600;line-height:1.2;color:#fff;margin-bottom:1.5rem}
-            .hero-section h2{font-size:1.4rem;font-weight:400;line-height:1.5;color:#fff;margin-bottom:3rem}
+            .display-3{font-size:2.5rem;font-weight:600;line-height:1.2;margin-bottom:1.5rem}            .hero-section h1{font-size:3rem;font-weight:700;line-height:1.2;color:#fff;margin-bottom:1.5rem;text-shadow:2px 2px 4px rgba(0,0,0,0.3)}
+            .hero-section h2{font-size:1.8rem;font-weight:500;line-height:1.4;color:#f8f9fa;margin-bottom:2rem;text-shadow:1px 1px 2px rgba(0,0,0,0.2)}
+            .hero-section .lead{font-size:1.2rem;color:#e9ecef;text-shadow:1px 1px 2px rgba(0,0,0,0.2)}
+            .feature-badge{background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:25px;padding:0.5rem 1rem;color:#fff;font-weight:500;display:inline-block;width:100%}
+            .btn-outline-light{border:2px solid #fff;color:#fff;background:transparent;font-weight:600;border-radius:50px}
+            .btn-outline-light:hover{background:#fff;color:#2d5016}
             .mb-4{margin-bottom:1.5rem!important}
             .mb-5{margin-bottom:3rem!important}
             .btn{display:inline-block;padding:0.7rem 2rem;border-radius:50px;font-weight:500;text-decoration:none;border:none;cursor:pointer;text-align:center}
-            .btn-primary{background:#2d5016;color:#fff;border:2px solid #2d5016}
+            .btn-directions{background:#d4af37;color:#1a3409;border:2px solid #d4af37;font-weight:600;font-size:1rem;padding:0.6rem 1.5rem;border-radius:25px;text-decoration:none;display:inline-flex;align-items:center;text-transform:uppercase;letter-spacing:0.5px}
+            .btn-directions:hover{background:#f4d03f;color:#1a3409;text-decoration:none}
             .btn-lg{padding:1rem 2.5rem;font-size:1.1rem}
             .hero-section .btn-directions{font-size:1.2rem;padding:1rem 2.5rem;border-radius:50px}
             .row{display:flex;flex-wrap:wrap;margin-right:-15px;margin-left:-15px}
@@ -242,7 +194,7 @@
             .align-items-center{align-items:center!important}
             .min-vh-100{min-height:100vh!important}
             img{max-width:100%;height:auto}
-            .animate-fade-in-delay{animation:none!important;opacity:1!important;transform:none!important}
+            .fw-bold{font-weight:700!important}
         `;
         const style = document.createElement('style');
         style.textContent = criticalCSS;
@@ -253,67 +205,84 @@
 <body>
     <!-- Navigation - Inlined for LCP performance -->    <!-- Navigation - Loaded from component -->
     <nav id="navbar-container"></nav>
-    
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="hero-overlay"></div>
+      <!-- Hero Section -->    <section id="home" class="hero-section">
         <div class="container">
-            <div class="row align-items-center min-vh-100">                <div class="col-lg-6 text-white">
-                    <h1 class="display-3 fw-bold mb-4">
-                        טלגראס כיוונים
+            <div class="row align-items-center min-vh-100">
+                <div class="col-12 text-white text-center">
+                    <h1 class="display-2 fw-bold mb-4">
+                        🌿 טלגראס כיוונים 🌿
                     </h1>
-                    <h2 class="mb-5">
-                        המקום הטוב ביותר למידע עדכני על טלגראס כיוונים, כיוונים וקנאביס בישראל
-                    </h2>                    <div>                        <a href="#directions" class="btn btn-directions btn-lg">
-                            📍 לכיוונים לחץ כאן!
+                    <h2 class="mb-4 fs-3">
+                        🚀 הפלטפורמה הישראלית המובילה למידע על קנאביס וטלגראס ✨
+                    </h2>
+                    <p class="lead mb-4 fs-5">
+                        💎 כיוונים מאומתים ובטוחים | מידע עדכני ואמין | קהילה פעילה של אלפי משתמשים
+                    </p>
+                    <div class="hero-features mb-5">
+                        <div class="row justify-content-center g-3">
+                            <div class="col-md-4">
+                                <div class="feature-badge">
+                                    <i class="bi bi-shield-check me-2"></i>
+                                    <span>100% מאומת</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="feature-badge">
+                                    <i class="bi bi-clock me-2"></i>
+                                    <span>זמין 24/7</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="feature-badge">
+                                    <i class="bi bi-people me-2"></i>
+                                    <span>קהילה של 50K+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-cta">
+                        <a href="#directions" class="btn btn-directions btn-lg me-3 mb-3">
+                            📍 מצא כיוונים עכשיו!
+                        </a>
+                        <a href="#guides" class="btn btn-outline-light btn-lg mb-3">
+                            📚 מדריכים מקצועיים
                         </a>
                     </div>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <div class="hero-image">
-                        <div class="icon-container">
-                            <i class="bi bi-flower1 hero-icon cannabis-grow"></i>
-                        </div>
-                        <div class="floating-element mt-3">
-                            <p class="text-white-50 mb-0">🌿 קנאביס איכותי</p>
-                        </div>
+                    <div class="hero-stats mt-5">
+                        <p class="text-light opacity-75">
+                            <strong>⭐ מדורג #1 בישראל</strong> | <strong>🔒 100% אנונימי</strong> | <strong>🚀 עדכונים יומיים</strong>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- About Section -->
+    </section><!-- About Section -->
     <section id="about" class="py-5 bg-light-green">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="icon-container text-center mb-4">
-                        <i class="bi bi-people feature-icon pulse"></i>
-                    </div>
-                </div>
-                <div class="col-lg-6">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
                     <h2 class="display-5 fw-bold mb-4">אודות טלגראס כיוונים</h2>
-                    <p class="lead mb-4">
-                        אנחנו מספקים מידע מקצועי ואמין על הקנאביס הרפואי והפנאי בישראל.
+                    <p class="lead mb-5">
+                        אנחנו מספקים מידע מקצועי ואמין על הקנאביס הרפואי והפנאי בישראל. 
                         המטרה שלנו היא לחנך ולהעניק מידע מדויק ועדכני לקהילה הישראלית.
                     </p>
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-shield-check text-primary me-3 fs-4"></i>
-                                <div>
-                                    <h6 class="mb-0">מידע אמין</h6>
-                                    <small class="text-muted">מקורות מהימנים</small>
+                    
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <i class="bi bi-shield-check text-success fs-1 mb-3"></i>
+                                    <h5 class="card-title fw-bold">מידע אמין</h5>
+                                    <p class="card-text text-muted">מקורות מהימנים</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-people text-primary me-3 fs-4"></i>
-                                <div>
-                                    <h6 class="mb-0">קהילה פעילה</h6>
-                                    <small class="text-muted">תמיכה והכוונה</small>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <i class="bi bi-people text-success fs-1 mb-3"></i>
+                                    <h5 class="card-title fw-bold">קהילה פעילה</h5>
+                                    <p class="card-text text-muted">תמיכה והכוונה</p>
                                 </div>
                             </div>
                         </div>
@@ -613,9 +582,8 @@
             <div class="row g-4">
                 <div class="col-lg-6">
                     <div class="card border-0 shadow-sm guide-card">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-telegram guide-icon pulse text-primary me-3"></i>
+                        <div class="card-body p-4">                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-telegram text-primary me-3"></i>
                                 <div>
                                     <h5 class="card-title mb-1">מדריך טלגרם</h5>
                                     <p class="text-muted mb-0">איך להשתמש בטלגרם לקנאביס</p>
@@ -629,9 +597,8 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="card border-0 shadow-sm guide-card">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-flower1 guide-icon glow text-success me-3"></i>
+                        <div class="card-body p-4">                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-flower1 text-success me-3"></i>
                                 <div>
                                     <h5 class="card-title mb-1">הזנים הפופולריים</h5>
                                     <p class="text-muted mb-0">הזנים הכי מבוקשים בישראל</p>
@@ -645,9 +612,8 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="card border-0 shadow-sm guide-card">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-shield-check guide-icon bounce text-warning me-3"></i>
+                        <div class="card-body p-4">                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-shield-check text-warning me-3"></i>
                                 <div>
                                     <h5 class="card-title mb-1">בטיחות ואבטחה</h5>
                                     <p class="text-muted mb-0">איך להישאר בטוחים</p>
@@ -660,9 +626,8 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="card border-0 shadow-sm guide-card">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-heart-pulse display-5 text-danger me-3"></i>
+                        <div class="card-body p-4">                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-heart-pulse text-danger me-3"></i>
                                 <div>
                                     <h5 class="card-title mb-1">קנאביס רפואי</h5>
                                     <p class="text-muted mb-0">תהליך קבלת רישיון</p>
@@ -677,17 +642,12 @@
             </div>
         </div>
     </section> <!-- Footer -->
-    <div id="footer-container"></div>
-
-    <!-- Bootstrap JS -->
+    <div id="footer-container"></div>    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Component JS -->
     <script src="assets/js/components.js" defer></script>
     <!-- Custom JS -->
     <script src="assets/js/main.js" defer></script>
-    <!-- Load optimization scripts before main script -->
-    <script src="/assets/js/image-optimization.js" defer></script>
-    <script src="/assets/js/critical-css.js" defer></script>
 </body>
 
 </html>

@@ -1,64 +1,66 @@
 /**
  * Component Loader - Load reusable components
+ * Optimized to prevent navbar flickering by loading synchronously
  */
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Detect if we're in cities folder
-    const inCities = window.location.pathname.includes('/cities/');
-    const path = inCities ? '../components/' : 'components/';
-    
-    // Load navbar component for ALL pages (now unified across the site)
-    if (document.getElementById('navbar-container')) {
-        loadComponent('navbar-container', path + 'navbar.html');
-    }
-    
-    // Always load footer component
-    if (document.getElementById('footer-container')) {
-        loadComponent('footer-container', path + 'footer.html');
-    } else if (document.getElementById('footer-placeholder')) {
-        loadComponent('footer-placeholder', path + 'footer.html');
-    }
-});
+// Synchronous component loader using XMLHttpRequest for immediate loading
+function loadComponentSync(elementId, componentPath) {
+    const element = document.getElementById(elementId);
+    if (!element) return false;
 
-/**
- * Load component into a container
- */
-function loadComponent(containerId, componentPath) {
+    try {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', componentPath, false); // false = synchronous
+        xhr.send();
+        
+        if (xhr.status === 200) {
+            let html = xhr.responseText;
+            
+            // If we're in cities folder and loading navbar, adjust paths
+            if (elementId === 'navbar-container' && window.location.pathname.includes('/cities/')) {
+                html = adjustNavbarPaths(html);
+            }
+            
+            element.innerHTML = html;
+            
+            // Execute any scripts in the loaded content
+            const scripts = element.querySelectorAll('script');
+            scripts.forEach(script => {
+                const newScript = document.createElement('script');
+                newScript.textContent = script.textContent;
+                document.head.appendChild(newScript);
+            });
+            
+            return true;
+        } else {
+            throw new Error(`HTTP ${xhr.status}`);
+        }
+    } catch (error) {
+        console.warn(`Failed to load ${componentPath}:`, error);
+        return false;
+    }
+}
+
+// Asynchronous component loader for non-critical components
+function loadComponentAsync(containerId, componentPath) {
     const container = document.getElementById(containerId);
-    if (!container) return;    // Add loading state with minimal CSS to prevent layout shift
-    if (containerId === 'navbar-container') {
-        container.innerHTML = '<nav class="navbar" style="height:70px;background:#2d5016;"></nav>';
-    }
+    if (!container) return;
     
     fetch(componentPath)
         .then(response => {
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             return response.text();
-        })        .then(html => {            // If we're in cities folder and loading navbar, adjust paths
+        })
+        .then(html => {
+            // If we're in cities folder and loading navbar, adjust paths
             if (containerId === 'navbar-container' && window.location.pathname.includes('/cities/')) {
                 html = adjustNavbarPaths(html);
             }
             container.innerHTML = html;
         })
         .catch(error => {
-            console.error(`Error loading ${componentPath}:`, error);            // Fallback navbar for critical navigation
-            if (containerId === 'navbar-container' || containerId === 'navbar-placeholder') {
-                container.innerHTML = `
-                    <nav class="navbar">
-                        <div class="container">
-                            <a class="navbar-brand fw-bold" href="${window.location.pathname.includes('/cities/') ? '../' : ''}index.html">
-                                טלגראס כיוונים
-                            </a>
-                            <div class="directions-btn-container">
-                                <a href="${window.location.pathname.includes('/cities/') ? '../' : ''}#directions" class="btn-directions">
-                                    כיוונים
-                                </a>
-                            </div>
-                        </div>
-                    </nav>`;
-            } else {
-                container.innerHTML = '<div class="alert alert-danger">Failed to load component</div>';
-            }
+            console.error(`Error loading ${componentPath}:`, error);
+            container.innerHTML = '<div class="alert alert-danger">Failed to load component</div>';
         });
 }
 
@@ -74,3 +76,41 @@ function adjustNavbarPaths(html) {
         return `href="../${url}"`;
     });
 }
+
+// Load navbar IMMEDIATELY (synchronously) to prevent flickering
+const inCities = window.location.pathname.includes('/cities/');
+const basePath = inCities ? '../components/' : 'components/';
+
+// Critical: Load navbar synchronously before page renders
+// This runs as soon as the script is loaded, not after DOM ready
+(function() {
+    const navbarContainer = document.getElementById('navbar-container');
+    if (navbarContainer) {
+        const success = loadComponentSync('navbar-container', basePath + 'navbar.html');
+        
+        // Fallback if sync loading fails
+        if (!success) {
+            navbarContainer.innerHTML = `
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark-green fixed-top" style="background-color: #1a3409 !important;">
+                    <div class="container">
+                        <a class="navbar-brand fw-bold" href="${inCities ? '../' : ''}index.html" style="color: #fff;">
+                            🌿 טלגראס כיוונים
+                        </a>
+                        <div class="directions-btn-container">
+                            <a href="${inCities ? '../' : ''}index.html#directions" class="btn btn-directions" style="background: #d4af37; color: #1a3409; padding: 0.6rem 1.5rem; border-radius: 25px; font-weight: 600; text-decoration: none;">
+                                📍 כיוונים
+                            </a>
+                        </div>
+                    </div>
+                </nav>`;
+        }
+    }
+})();
+
+// Load footer when DOM is ready (can be asynchronous)
+document.addEventListener('DOMContentLoaded', function() {
+    const footerContainer = document.getElementById('footer-container') || document.getElementById('footer-placeholder');
+    if (footerContainer && !footerContainer.innerHTML.trim()) {
+        loadComponentAsync(footerContainer.id, basePath + 'footer.html');
+    }
+});

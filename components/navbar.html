@@ -1,305 +1,305 @@
+
 <style>
-    /* All critical navbar styles inline for fastest loading - matching index.html exactly with maximum specificity */
-    :root {
-        --primary-green: #2d5016;
-        --secondary-green: #4a7c59;
-        --accent-green: #7cb342;
-        --cannabis-gold: #d4af37;
-    }
-    
-    * {
-        box-sizing: border-box;
-    }
-    
-    html {
-        scroll-behavior: smooth;
-    }
-    
-    body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        line-height: 1.6;
-        color: #2c3e50;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .container {
-        width: 100%;
-        padding: 0 15px;
-        margin: 0 auto;
-        max-width: 1140px;
-    }
-    
-    /* Navbar Styles - Exact match to index.html critical CSS with maximum specificity */
-    .navbar.navbar-dark.bg-dark-green,
-    .navbar.navbar-expand-lg.navbar-dark.bg-dark-green,
-    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark-green {
-        padding: 1rem 0;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        background: #1a3409 !important;
-        background-color: #1a3409 !important;
-        border: none;
-        transition: none;
-    }
-    
-    .navbar {
-        padding: 1rem 0;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        background: #1a3409 !important;
-        background-color: #1a3409 !important;
-        border: none;
-    }
-    
+/* Critical navbar styles - inline for immediate loading */
+.navbar {
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #1a3409 !important;
+    background-color: #1a3409 !important;
+    border: none;
+}
+
+.navbar-expand-lg {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.navbar-dark {
+    background-color: #1a3409 !important;
+}
+
+.bg-dark-green {
+    background-color: #1a3409 !important;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.navbar .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 160px;
+}
+
+.navbar-brand {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.25rem;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    white-space: nowrap;
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+}
+
+.navbar-toggler {
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+}
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.collapse {
+    display: none;
+}
+
+.collapse.show {
+    display: block;
+}
+
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.nav-item {
+    display: list-item;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    text-decoration: none;
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: #d4af37;
+    background-color: rgba(212, 175, 55, 0.1);
+    outline: 2px solid #d4af37;
+    outline-offset: 2px;
+}
+
+.navbar-toggler {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler:focus {
+    outline: 2px solid #d4af37;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #d4af37;
+}
+
+.ms-auto {
+    margin-left: auto !important;
+}
+
+.directions-btn-container {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.btn-directions {
+    background: #d4af37;
+    color: #1a3409;
+    border: 2px solid #d4af37;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-height: 48px;
+    min-width: 48px;
+    transition: all 0.3s ease;
+}
+
+.btn-directions:hover, .btn-directions:focus {
+    background: #f4d03f;
+    color: #1a3409;
+    text-decoration: none;
+    outline: 2px solid #1a3409;
+    outline-offset: 2px;
+    transform: translateY(-2px);
+}
+
+.btn-directions:active {
+    transform: translateY(0);
+}
+
+@media (min-width: 992px) {
     .navbar-expand-lg {
         flex-wrap: nowrap;
         justify-content: flex-start;
     }
     
-    .navbar-dark {
-        background-color: #1a3409 !important;
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: row;
     }
     
-    .bg-dark-green {
-        background-color: #1a3409 !important;
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
     }
     
-    .fixed-top {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-    
-    .navbar .container {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-right: 160px;
-    }
-    
-    .navbar-brand {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        font-weight: 600;
-        text-decoration: none;
-        color: #fff;
-        font-size: 1.25rem;
-        padding-top: 0.3125rem;
-        padding-bottom: 0.3125rem;
-        margin-right: 1rem;
-        white-space: nowrap;
-    }
-    
-    .fw-bold {
-        font-weight: 700 !important;
-    }
-    
-    .me-2 {
-        margin-right: 0.5rem !important;
-    }
-    
-    .me-1 {
-        margin-right: 0.25rem !important;
-    }
-    
-    .navbar-toggler {
-        padding: 0.25rem 0.75rem;
-        font-size: 1.25rem;
-        line-height: 1;
-        background-color: transparent;
-        border: 1px solid transparent;
-        border-radius: 0.375rem;
-    }
-    
-    .navbar-toggler-icon {
-        display: inline-block;
-        width: 1.5em;
-        height: 1.5em;
-        vertical-align: middle;
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 100%;
-    }
-    
-    .collapse {
+    .navbar-expand-lg .navbar-toggler {
         display: none;
     }
     
-    .navbar-collapse {
-        flex-basis: 100%;
-        flex-grow: 1;
-        align-items: center;
+    .navbar-expand-lg .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar .container {
+        padding-right: 15px;
     }
     
-    .navbar-nav {
-        display: flex;
-        flex-direction: column;
-        padding-left: 0;
-        margin-bottom: 0;
-        list-style: none;
+    .directions-btn-container {
+        position: static;
+        transform: none;
+        margin-top: 1rem;
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+    
+    .navbar-collapse {
+        margin-top: 1rem;
+        padding: 1rem 0;
     }
     
     .nav-item {
-        display: list-item;
+        margin: 0.25rem 0;
     }
     
     .nav-link {
-        display: block;
-        padding: 0.5rem 1rem;
-        color: #fff;
-        text-decoration: none;
-    }
-    
-    .nav-link:hover {
-        color: #d4af37;
-    }
-    
-    .ms-auto {
-        margin-left: auto !important;
-    }
-    
-    /* Directions Button */
-    .directions-btn-container {
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1000;
-    }
-    
-    .btn-directions {
-        background: #d4af37;
-        color: #1a3409;
-        border: 2px solid #d4af37;
-        font-weight: 600;
-        font-size: 1rem;
-        padding: 0.6rem 1.5rem;
-        border-radius: 25px;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-    
-    .btn-directions:hover {
-        background: #f4d03f;
-        color: #1a3409;
-        text-decoration: none;
-    }
-    
-    /* Bootstrap Button Base Styles */
-    .btn {
-        display: inline-block;
-        padding: 0.7rem 2rem;
-        border-radius: 50px;
-        font-weight: 500;
-        text-decoration: none;
-        border: none;
-        cursor: pointer;
+        padding: 0.75rem 1rem;
+        margin: 0.25rem 0;
+        border-radius: 8px;
         text-align: center;
     }
     
-    .btn-primary {
-        background: #2d5016;
-        color: #fff;
-        border: 2px solid #2d5016;
-    }
-    
-    .btn-lg {
-        padding: 1rem 2.5rem;
+    .btn-directions {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
         font-size: 1.1rem;
     }
-    
-    /* Responsive Design - Exact match to index.html */
-    @media (min-width: 992px) {
-        .navbar-expand-lg {
-            flex-wrap: nowrap;
-            justify-content: flex-start;
-        }
-        
-        .navbar-expand-lg .navbar-nav {
-            flex-direction: row;
-        }
-        
-        .navbar-expand-lg .navbar-nav .nav-link {
-            padding-right: 0.5rem;
-            padding-left: 0.5rem;
-        }
-        
-        .navbar-expand-lg .navbar-toggler {
-            display: none;
-        }
-        
-        .navbar-expand-lg .navbar-collapse {
-            display: flex !important;
-            flex-basis: auto;
-        }
-    }
-    
-    /* Additional responsive adjustments for mobile */
-    @media (max-width: 991.98px) {
-        .navbar .container {
-            padding-right: 15px;
-        }
-        
-        .directions-btn-container {
-            position: static;
-            transform: none;
-            margin-top: 1rem;
-            text-align: center;
-        }
-        
-        .navbar-collapse {
-            margin-top: 1rem;
-        }
-    }
+}
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark-green fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark-green fixed-top" role="navigation" aria-label="ניווט ראשי">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="/">
+        <a class="navbar-brand fw-bold" href="/" aria-label="טלגראס כיוונים - עמוד הבית">
             🌿 טלגראס כיוונים
         </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="פתח תפריט ניווט">
             <span class="navbar-toggler-icon"></span>
         </button>
+        
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/מדריך-טלגרם.html">מדריך טלגרם</a>
+            <ul class="navbar-nav ms-auto" role="menubar">
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="/מאמרים.html" role="menuitem" aria-label="עבור לעמוד מאמרים">מאמרים</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/מדריך-קנאביס-רפואי.html">קנאביס רפואי</a>
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="/מדריך-טלגרם.html" role="menuitem" aria-label="עבור למדריך טלגרם">מדריך טלגרם</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/זנים-פופולריים-בישראל.html">זנים פופולריים</a>
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="/מדריך-קנאביס-רפואי.html" role="menuitem" aria-label="עבור למדריך קנאביס רפואי">קנאביס רפואי</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/שאלות-נפוצות.html">שאלות נפוצות</a>
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="/זנים-פופולריים-בישראל.html" role="menuitem" aria-label="עבור לעמוד זנים פופולריים">זנים פופולריים</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/ערים-בישראל.html">
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="/שאלות-נפוצות.html" role="menuitem" aria-label="עבור לעמוד שאלות נפוצות">שאלות נפוצות</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="/ערים-בישראל.html" role="menuitem" aria-label="עבור לעמוד כל הערים">
                         כל הערים
                     </a>
                 </li>
             </ul>
         </div>
-
-        <!-- Always Visible Directions Button -->
+          <!-- Always Visible Directions Button -->
         <div class="directions-btn-container">
-            <a href="/ערים-בישראל.html" class="btn btn-directions">
+            <a href="index.html#directions" class="btn btn-directions" onclick="handleDirectionsClick(event)" 
+               aria-label="עבור לכיוונים או גלול לסקטור הכיוונים">
                 📍 כיוונים
             </a>
         </div>
     </div>
 </nav>
+
+<script>
+// Handle directions button click - using a global function for reliability
+window.handleDirectionsClick = function(e) {
+    // Check if directions section exists on current page
+    const directionsSection = document.getElementById('directions');
+    
+    if (directionsSection) {
+        // We're on homepage, prevent default and scroll smoothly
+        e.preventDefault();
+        directionsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    // Otherwise, allow the default href to work (index.html#directions)
+};
+</script>
