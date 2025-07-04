@@ -10,23 +10,7 @@
         gtag('config', 'G-6ZF8WLZKQY');
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
-    <script>
-        DisableDevtool({
-            ondevtoolopen: (type, next) => {
-                fetch('/log-devtool-activation', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        activated: true,
-                        type: type,
-                        timestamp: new Date().toISOString()
-                    })
-                }).catch(err => console.error('Log failed:', err));
-                window.location.replace('about:blank');
-            }
-        });
-    </script>
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

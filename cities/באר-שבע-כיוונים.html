@@ -7,30 +7,11 @@
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date())                        <div class="col-auto">
-                            <a href="../ערים-בישראל.html" class="btn btn-primary">
-                                <i class="bi bi-list me-1"></i>כל הערים
-                            </a>
-                        </div>      gtag('config', 'G-6ZF8WLZKQY');
+        gtag('js', new Date());
+        gtag('config', 'G-6ZF8WLZKQY');
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
-    <script>
-        DisableDevtool({
-            ondevtoolopen: (type, next) => {
-                fetch('/log-devtool-activation', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        activated: true,
-                        type: type,
-                        timestamp: new Date().toISOString()
-                    })
-                }).catch(err => console.error('Log failed:', err));
-                window.location.replace('about:blank');
-            }
-        });
-    </script>
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -124,8 +105,11 @@
             <div class="row align-items-center" style="min-height: 50vh;">
                 <div class="col-lg-8 text-white">
                     <nav aria-label="breadcrumb" class="mb-4">
-                        <ol class="breadcrumb">                            <li class="breadcrumb-item"><a href="../index.html" class="text-decoration-none text-white-50">בית</a></li>
-                            <li class="breadcrumb-item"><a href="../ערים-בישראל.html" class="text-decoration-none text-white-50">כל הערים</a></li>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../index.html"
+                                    class="text-decoration-none text-white-50">בית</a></li>
+                            <li class="breadcrumb-item"><a href="../ערים-בישראל.html"
+                                    class="text-decoration-none text-white-50">כל הערים</a></li>
                             <li class="breadcrumb-item active text-white">באר שבע</li>
                         </ol>
                     </nav>
@@ -138,7 +122,8 @@
                         כיוונים באר שבע 2025
                     </h1>
                     <p class="lead mb-4">
-                        כיוונים באר שבע המעודכנים ביותר - טלגראס כיוונים באר שבע מהימן ובטוח. קנאביס וויד איכותי בבאר שבע והדרום
+                        כיוונים באר שבע המעודכנים ביותר - טלגראס כיוונים באר שבע מהימן ובטוח. קנאביס וויד איכותי בבאר
+                        שבע והדרום
                     </p>
                 </div>
                 <div class="col-lg-4 text-center">
@@ -173,7 +158,8 @@
                                 <div class="col-md-6">
                                     <div class="card h-100 border-0 bg-light">
                                         <div class="card-body text-center">
-                                            <i class="bi bi-building-fill text-primary mb-3" style="font-size: 2rem;"></i>
+                                            <i class="bi bi-building-fill text-primary mb-3"
+                                                style="font-size: 2rem;"></i>
                                             <h5>מרכז באר שבע</h5>
                                             <p class="text-muted">העיר העתיקה, רמת גן</p>
                                             <div class="status-dot online"></div>
@@ -223,30 +209,38 @@
                                     <div class="accordion" id="beerShevaAccordion">
                                         <div class="accordion-item">
                                             <h2 class="accordion-header">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#safety">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#safety">
                                                     <i class="bi bi-shield-check me-2"></i>
                                                     בטיחות ואבטחה
                                                 </button>
                                             </h2>
-                                            <div id="safety" class="accordion-collapse collapse show" data-bs-parent="#beerShevaAccordion">
+                                            <div id="safety" class="accordion-collapse collapse show"
+                                                data-bs-parent="#beerShevaAccordion">
                                                 <div class="accordion-body">
                                                     <ul class="list-unstyled">
-                                                        <li><i class="bi bi-check-circle text-success me-2"></i>זהירות באזורי גבול</li>
-                                                        <li><i class="bi bi-check-circle text-success me-2"></i>השתמש ב-VPN תמיד</li>
-                                                        <li><i class="bi bi-check-circle text-success me-2"></i>בדוק אמינות קבוצות</li>
-                                                        <li><i class="bi bi-check-circle text-success me-2"></i>העדף נקודות מרכזיות</li>
+                                                        <li><i class="bi bi-check-circle text-success me-2"></i>זהירות
+                                                            באזורי גבול</li>
+                                                        <li><i class="bi bi-check-circle text-success me-2"></i>השתמש
+                                                            ב-VPN תמיד</li>
+                                                        <li><i class="bi bi-check-circle text-success me-2"></i>בדוק
+                                                            אמינות קבוצות</li>
+                                                        <li><i class="bi bi-check-circle text-success me-2"></i>העדף
+                                                            נקודות מרכזיות</li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="accordion-item">
                                             <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hours">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#hours">
                                                     <i class="bi bi-clock me-2"></i>
                                                     שעות פעילות
                                                 </button>
                                             </h2>
-                                            <div id="hours" class="accordion-collapse collapse" data-bs-parent="#beerShevaAccordion">
+                                            <div id="hours" class="accordion-collapse collapse"
+                                                data-bs-parent="#beerShevaAccordion">
                                                 <div class="accordion-body">
                                                     <div class="row">
                                                         <div class="col-md-6">
@@ -259,38 +253,44 @@
                                                         </div>
                                                     </div>
                                                     <div class="alert alert-warning">
-                                                        <small><i class="bi bi-exclamation-triangle me-1"></i> שירות מוגבל בימי חום קיצוניים</small>
+                                                        <small><i class="bi bi-exclamation-triangle me-1"></i> שירות
+                                                            מוגבל בימי חום קיצוניים</small>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="accordion-item">
                                             <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#delivery">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#delivery">
                                                     <i class="bi bi-truck me-2"></i>
                                                     אזורי משלוח
                                                 </button>
                                             </h2>
-                                            <div id="delivery" class="accordion-collapse collapse" data-bs-parent="#beerShevaAccordion">
+                                            <div id="delivery" class="accordion-collapse collapse"
+                                                data-bs-parent="#beerShevaAccordion">
                                                 <div class="accordion-body">
                                                     <div class="row g-3">
                                                         <div class="col-md-4">
                                                             <div class="text-center p-3 bg-success text-white rounded">
-                                                                <i class="bi bi-check-circle mb-2" style="font-size: 1.5rem;"></i>
+                                                                <i class="bi bi-check-circle mb-2"
+                                                                    style="font-size: 1.5rem;"></i>
                                                                 <h6>מרכז העיר</h6>
                                                                 <small>משלוח מהיר</small>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="text-center p-3 bg-warning text-dark rounded">
-                                                                <i class="bi bi-clock mb-2" style="font-size: 1.5rem;"></i>
+                                                                <i class="bi bi-clock mb-2"
+                                                                    style="font-size: 1.5rem;"></i>
                                                                 <h6>שכונות חיצוניות</h6>
                                                                 <small>זמן ממושך</small>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="text-center p-3 bg-info text-white rounded">
-                                                                <i class="bi bi-geo-alt mb-2" style="font-size: 1.5rem;"></i>
+                                                                <i class="bi bi-geo-alt mb-2"
+                                                                    style="font-size: 1.5rem;"></i>
                                                                 <h6>יישובי הדרום</h6>
                                                                 <small>שירות מיוחד</small>
                                                             </div>
@@ -307,7 +307,7 @@
                 </div>
             </div>
         </div>
-    </section>    <!-- Regional Navigation for SEO -->
+    </section> <!-- Regional Navigation for SEO -->
     <section class="py-4 bg-light">
         <div class="container">
             <div class="row">
@@ -349,7 +349,7 @@
                 <div class="col-lg-8 mx-auto text-center">
                     <h2 class="mb-4">מחפש כיוונים נוספים?</h2>
                     <p class="lead mb-4">גלה כיוונים מעודכנים לכל ערי ישראל ומידע שימושי נוסף</p>
-                    
+
                     <!-- Regional Categories -->
                     <div class="row g-3 justify-content-center mb-4">
                         <div class="col-12">
@@ -421,13 +421,11 @@
     <div id="footer-container"></div>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>    <!-- Component JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Component JS -->
     <script src="../assets/js/components.js"></script>
     <!-- Custom JS -->
     <script src="../assets/js/main.js"></script>
 </body>
 
 </html>
-
-
-
