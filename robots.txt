@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://xn----zhcfoankcogt8ah0h.xyz/sitemap.xml
-Sitemap: https://xn----zhcfoankcogt8ah0h.xyz/news-sitemap.xml
+Sitemap: https://טלגראס-כיוונים.xyz/sitemap.xml
+Sitemap: https://טלגראס-כיוונים.xyz/news-sitemap.xml
