@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://xn--4dbca9c-xyz/sitemap.xml
-Sitemap: https://xn--4dbca9c-xyz/news-sitemap.xml
+Sitemap: https://xn----zhcfoankcogt8ah0h.xyz/sitemap.xml
+Sitemap: https://xn----zhcfoankcogt8ah0h.xyz/news-sitemap.xml
