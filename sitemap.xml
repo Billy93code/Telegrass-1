@@ -8,8 +8,8 @@
 <priority>1.0</priority>
 </url>
 <url>
-<loc>https://טלגראס-כיוונים.xyz/index.html</loc>
-<lastmod>2025-06-21</lastmod>
+<url><loc>https://טלגראס-כיוונים.xyz/cities/תל-שבע-כיוונים.html</loc></url>
+</urlset>
 <changefreq>daily</changefreq>
 <priority>1.0</priority>
 </url>
@@ -68,7 +68,7 @@
 <lastmod>2025-06-21</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.85</priority>
-</url>
+ </url>
 
 <!-- Content Pages -->
 <url>
