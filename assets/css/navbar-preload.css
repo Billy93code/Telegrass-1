@@ -1,0 +1,58 @@
+/* Navbar Preload CSS - Prevents flickering by reserving space */
+/* Add this to the <head> of each page before any other CSS */
+
+/* Reserve space for the navbar to prevent layout shift */
+body {
+    padding-top: 76px; /* Height of the navbar */
+}
+
+/* Navbar skeleton/placeholder that appears instantly */
+#navbar-skeleton {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 76px;
+    background: #1a3409;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+#navbar-skeleton .brand {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+#navbar-skeleton .directions-placeholder {
+    position: absolute;
+    right: 15px;
+    background: #d4af37;
+    color: #1a3409;
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Hide skeleton when real navbar loads */
+.navbar-loaded #navbar-skeleton {
+    display: none;
+}
+
+/* Ensure smooth transition */
+.navbar {
+    transition: opacity 0.2s ease;
+}
+
+/* Initial state - navbar is hidden until loaded */
+#navbar-container .navbar {
+    opacity: 0;
+}
+
+/* Show navbar when loaded */
+.navbar-loaded #navbar-container .navbar {
+    opacity: 1;
+}

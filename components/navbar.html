@@ -1,0 +1,175 @@
+<style>
+    /* Critical navbar styles - inline for immediate loading */
+    .navbar,
+    .navbar-dark,
+    .bg-dark-green {
+        background: #1a3409 !important;
+        background-color: #1a3409 !important;
+        transition: none !important;
+    }
+
+    .navbar {
+        padding: 1rem 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        border: none;
+    }
+
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .navbar-brand {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-weight: 600;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.25rem;
+        padding-top: 0.3125rem;
+        padding-bottom: 0.3125rem;
+        margin-right: 1rem;
+        white-space: nowrap;
+    }
+
+    .fw-bold {
+        font-weight: 700 !important;
+    }
+
+    .nav-link {
+        color: #fff;
+        min-height: 44px;
+        min-width: 44px;
+        font-size: 1rem;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus {
+        color: #d4af37;
+        background-color: rgba(212, 175, 55, 0.1);
+        outline: 2px solid #d4af37;
+        outline-offset: 2px;
+    }
+
+    .btn-directions {
+        background: #d4af37;
+        color: #1a3409;
+        border: 2px solid #d4af37;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        min-height: 48px;
+        min-width: 48px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-directions:hover,
+    .btn-directions:focus {
+        background: #f4d03f;
+        color: #1a3409;
+        text-decoration: none;
+        outline: 2px solid #1a3409;
+        outline-offset: 2px;
+        transform: translateY(-2px);
+    }
+
+    .btn-directions:active {
+        transform: translateY(0);
+    }
+
+    @media (min-width: 992px) {
+        .directions-btn-container {
+            display: block !important;
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .directions-btn-container {
+            display: none !important;
+        }
+    }
+</style>
+
+<!-- Reserve space for navbar to prevent layout shift -->
+<div style="height:76px;width:100%;display:block;"></div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark-green fixed-top" role="navigation" aria-label="ניווט ראשי">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="directions-btn-container d-none d-lg-block order-lg-1 me-3">
+            <a href="index.html#directions" class="btn btn-directions" onclick="handleDirectionsClick(event)"
+                aria-label="עבור לכיוונים או גלול לסקטור הכיוונים">
+                📍 כיוונים
+            </a>
+        </div>
+        <a class="navbar-brand fw-bold order-lg-2" href="/" aria-label="טלגראס כיוונים - עמוד הבית">
+            🌿 טלגראס כיוונים
+        </a>
+        <!-- Mobile directions button next to menu -->
+        <div class="d-lg-none order-lg-3 me-2">
+            <a href="/index.html#directions" class="btn btn-directions"
+                style="min-width:44px;min-height:44px;padding:0.5rem 1rem;" onclick="handleDirectionsClick(event)"
+                aria-label="עבור לכיוונים">
+                📍 כיוונים
+            </a>
+        </div>
+        <button class="navbar-toggler order-lg-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="פתח תפריט ניווט">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse order-lg-5" id="navbarNav">
+            <ul class="navbar-nav ms-auto" role="menubar">
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="/מאמרים.html" role="menuitem" aria-label="עבור לעמוד מאמרים">מאמרים</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="/מדריך-טלגרם.html" role="menuitem" aria-label="עבור למדריך טלגרם">מדריך
+                        טלגרם</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="/מדריך-קנאביס-רפואי.html" role="menuitem"
+                        aria-label="עבור למדריך קנאביס רפואי">קנאביס רפואי</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="/זנים-פופולריים-בישראל.html" role="menuitem"
+                        aria-label="עבור לעמוד זנים פופולריים">זנים פופולריים</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="/שאלות-נפוצות.html" role="menuitem"
+                        aria-label="עבור לעמוד שאלות נפוצות">שאלות נפוצות</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a class="nav-link" href="/ערים-בישראל.html" role="menuitem" aria-label="עבור לעמוד כל הערים">
+                        כל הערים
+                    </a>
+                </li>
+                <!-- Removed mobile כיוונים button from here -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script>
+    // Handle directions button click - using a global function for reliability
+    window.handleDirectionsClick = function (e) {
+        // Check if directions section exists on current page
+        const directionsSection = document.getElementById('directions');
+
+        if (directionsSection) {
+            // We're on homepage, prevent default and scroll smoothly
+            e.preventDefault();
+            directionsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        // Otherwise, allow the default href to work (index.html#directions)
+    };
+</script>

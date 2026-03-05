@@ -1,0 +1,49 @@
+/* Font Display Optimization to prevent layout shifts */
+@font-face {
+  font-family: "bootstrap-icons";
+  src: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/fonts/bootstrap-icons.woff2") format("woff2"),
+       url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/fonts/bootstrap-icons.woff") format("woff");
+  font-display: swap; /* Prevents layout shifts by showing fallback immediately */
+}
+
+/* Fallback icons for critical elements to prevent layout shift */
+.bi {
+  font-family: "bootstrap-icons", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -.125em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure icons maintain consistent size even before font loads */
+.bi::before {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -.125em;
+}
+
+/* Size reservations for common icon sizes */
+.fs-1 .bi::before {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.fs-2 .bi::before {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Navbar height reservation to prevent layout shift */
+nav.navbar {
+  min-height: 76px;
+}
+
+/* Footer height reservation */
+#footer-container {
+  min-height: 200px;
+}

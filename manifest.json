@@ -1,0 +1,14 @@
+{
+    "name": "טלגראס כיוונים - קנאביס ישראל",
+    "short_name": "טלגראס כיוונים",
+    "description": "המדריך המוביל לטלגראס כיוונים וטלגרם כיוונים קנאביס בישראל",
+    "lang": "he",
+    "dir": "rtl",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#28a745",
+    "background_color": "#ffffff",
+    "orientation": "portrait-primary",
+    "categories": ["medical", "health", "lifestyle"],
+    "icons": []
+}
