@@ -1,17 +1,162 @@
-<footer class="bg-dark text-white py-4">
+<footer class="site-footer">
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center">                <div class="footer-links mb-3">
-                    <a href="../index.html" class="text-white-50 text-decoration-none me-3">בית</a>
-                    <a href="../מאמרים.html" class="text-white-50 text-decoration-none me-3">מאמרים</a>
-                    <a href="../מדריך-טלגרם.html" class="text-white-50 text-decoration-none me-3">מדריך טלגרם</a>
-                    <a href="../מדריך-קנאביס-רפואי.html" class="text-white-50 text-decoration-none me-3">קנאביס רפואי</a>
-                    <a href="../זנים-פופולריים-בישראל.html" class="text-white-50 text-decoration-none me-3">זנים פופולריים</a>
-                    <a href="../מדריך-בטיחות-ואבטחה.html" class="text-white-50 text-decoration-none me-3">בטיחות ואבטחה</a>
-                    <a href="../ערים-בישראל.html" class="text-white-50 text-decoration-none">כל הערים</a>
+            <!-- Brand -->
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <h4 style="font-weight:700;color:#fff;margin-bottom:0.75rem">🌿 טלגראס כיוונים</h4>
+                <p style="font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:1rem">
+                    הפלטפורמה המובילה בישראל למידע מקצועי ואמין על קנאביס. מדריכים, כיוונים ומידע חוקי — עודכן 2026.
+                </p>
+                <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+                    <span class="info-pill" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.8)">
+                        <i class="bi bi-shield-check"></i> מידע מאומת
+                    </span>
+                    <span class="info-pill" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.8)">
+                        <i class="bi bi-calendar3"></i> 2026
+                    </span>
                 </div>
-                <p class="mb-0 text-white-50">&copy; 2025 טלגראס כיוונים | תוכן לחינוך בלבד | +18</p>
             </div>
+            <!-- Quick Links -->
+            <div class="col-lg-2 col-md-6 col-6 mb-4 mb-lg-0">
+                <h6 class="footer-heading">ניווט</h6>
+                <ul class="footer-links">
+                    <li><a href="index.html">בית</a></li>
+                    <li><a href="ערים-בישראל.html">כל הערים</a></li>
+                    <li><a href="מאמרים.html">מאמרים</a></li>
+                    <li><a href="שאלות-נפוצות.html">שאלות נפוצות</a></li>
+                </ul>
+            </div>
+            <!-- Guides -->
+            <div class="col-lg-3 col-md-6 col-6 mb-4 mb-lg-0">
+                <h6 class="footer-heading">מדריכים</h6>
+                <ul class="footer-links">
+                    <li><a href="מדריך-טלגרם.html">מדריך טלגרם</a></li>
+                    <li><a href="מדריך-קנאביס-רפואי.html">קנאביס רפואי</a></li>
+                    <li><a href="זנים-פופולריים-בישראל.html">זנים פופולריים</a></li>
+                    <li><a href="מדריך-בטיחות-ואבטחה.html">בטיחות ואבטחה</a></li>
+                </ul>
+            </div>
+            <!-- Info -->
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <h6 class="footer-heading">מידע נוסף</h6>
+                <ul class="footer-links">
+                    <li><a href="חוקיות-קנאביס-בישראל.html">חוקיות קנאביס</a></li>
+                    <li><a href="CBD-לעומת-THC.html">CBD לעומת THC</a></li>
+                    <li><a href="דרכי-צריכה.html">דרכי צריכה</a></li>
+                    <li><a href="יתרונות-בריאותיים.html">יתרונות בריאותיים</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 טלגראס כיוונים | תוכן לחינוך בלבד | +18</span>
+            <span>🌿 עודכן מרץ 2026</span>
         </div>
     </div>
 </footer>
+<!-- Scroll to Top -->
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="חזור למעלה">
+    <i class="bi bi-chevron-up"></i>
+</button>
+
+<!-- Telegram CTA Button -->
+<a href="https://bit.ly/Telegrass-kivunim" target="_blank" rel="noopener" class="telegram-cta-btn" aria-label="פתח טלגרם">
+    <div class="telegram-cta-icon">
+        <i class="bi bi-telegram"></i>
+    </div>
+    <div class="telegram-cta-text">
+        <span class="telegram-cta-title">מחפשים כיוון? 🌿</span>
+        <span class="telegram-cta-sub">בואו לטלגרם שלנו</span>
+    </div>
+    <div class="telegram-cta-arrow">
+        <i class="bi bi-chevron-left"></i>
+    </div>
+</a>
+
+<style>
+.telegram-cta-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 998;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #0088cc 0%, #006aaa 100%);
+    color: #fff !important;
+    text-decoration: none !important;
+    padding: 0.85rem 1rem 0.85rem 1.1rem;
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(0,136,204,0.5), 0 2px 8px rgba(0,0,0,0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    max-width: 240px;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+.telegram-cta-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+    pointer-events: none;
+}
+.telegram-cta-btn:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0,136,204,0.6), 0 4px 12px rgba(0,0,0,0.2);
+    color: #fff !important;
+    text-decoration: none !important;
+}
+.telegram-cta-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 12px;
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.25);
+}
+.telegram-cta-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+    flex: 1;
+}
+.telegram-cta-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+}
+.telegram-cta-sub {
+    font-size: 0.78rem;
+    opacity: 0.85;
+    margin-top: 0.1rem;
+}
+.telegram-cta-arrow {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+@media (max-width: 480px) {
+    .telegram-cta-btn {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.7rem 0.85rem 0.7rem 0.9rem;
+        border-radius: 14px;
+        max-width: 210px;
+    }
+    .telegram-cta-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+    .telegram-cta-title { font-size: 0.88rem; }
+    .telegram-cta-sub { font-size: 0.72rem; }
+}
+</style>
+
+<script>
+(function(){var b=document.querySelector('.scroll-top');if(b){window.addEventListener('scroll',function(){b.classList.toggle('visible',window.scrollY>400)},{passive:true})}})();
+</script>

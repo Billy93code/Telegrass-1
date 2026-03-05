@@ -14,9 +14,14 @@ async function loadComponentAsync(elementId, componentPath) {
         if (response.ok) {
             let html = await response.text();
             
-            // If we're in cities folder and loading navbar, adjust paths
-            if (elementId === 'navbar-container' && window.location.pathname.includes('/cities/')) {
-                html = adjustNavbarPaths(html);
+            // If we're in cities folder, adjust paths for navbar and footer
+            if (window.location.pathname.includes('/cities/')) {
+                if (elementId === 'navbar-container') {
+                    html = adjustNavbarPaths(html);
+                }
+                if (elementId === 'footer-container' || elementId === 'footer-placeholder') {
+                    html = adjustFooterPaths(html);
+                }
             }
             
             element.innerHTML = html;
@@ -44,6 +49,18 @@ async function loadComponentAsync(elementId, componentPath) {
  */
 function adjustNavbarPaths(html) {
     // Replace all href attributes that don't already start with ../ or http
+    return html.replace(/href="([^"]*\.html[^"]*)"/g, (match, url) => {
+        if (url.startsWith('../') || url.startsWith('http') || url.startsWith('#')) {
+            return match;
+        }
+        return `href="../${url}"`;
+    });
+}
+
+/**
+ * Adjust footer paths for cities subfolder
+ */
+function adjustFooterPaths(html) {
     return html.replace(/href="([^"]*\.html[^"]*)"/g, (match, url) => {
         if (url.startsWith('../') || url.startsWith('http') || url.startsWith('#')) {
             return match;
